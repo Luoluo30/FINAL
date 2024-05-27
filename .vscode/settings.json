@@ -1,0 +1,17 @@
+{
+	"terminal.integrated.env.windows": {
+		"PATH": "${workspaceFolder}\\..\\MinGW\\bin;${env:PATH}"
+	},
+	"files.associations": {
+		"judge.h": "c",
+		"element.h": "c",
+		"beat1.h": "c",
+		"scenemanager.h": "c",
+		"charater.h": "c",
+		"shape.h": "c",
+		"limits": "c",
+		"gamescene.h": "c",
+		"timer.h": "c",
+		"circle.h": "c"
+	}
+}
