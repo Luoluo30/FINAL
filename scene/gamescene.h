@@ -28,7 +28,7 @@ typedef enum EleType
     Beat_L,
     Timer_L,
     Boss_L,
-    Star_L
+    Star_L,
 } EleType;
 typedef struct _GameScene
 {

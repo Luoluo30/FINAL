@@ -26,9 +26,9 @@ Scene *New_GameScene(int label)
     _Register_elements(pObj, New_Tree(Tree_L));
     _Register_elements(pObj, New_Character(Character_L));*/
     _Register_elements(pObj, New_Judge(Judge_L));
-    _Register_elements(pObj, New_Beat(Beat_L, 505, 580, -6, al_map_rgb(100, 100, 100)));
-    _Register_elements(pObj, New_Beat(Beat_L, 890, 580, -6, al_map_rgb(100, 100, 100)));
-    _Register_elements(pObj, New_Beat(Beat_L, 1111, 580, -6, al_map_rgb(100, 100, 100)));
+    _Register_elements(pObj, New_Beat(Beat_L, 505, 590, -6, al_map_rgb(255,255, 255)));
+    _Register_elements(pObj, New_Beat(Beat_L, 890, 590, -6, al_map_rgb(255,255, 255)));
+    _Register_elements(pObj, New_Beat(Beat_L, 1111, 590, -6, al_map_rgb(255,255, 255)));
     _Register_elements(pObj, New_Timer(Timer_L));
     _Register_elements(pObj, New_Boss(Boss_L));
     _Register_elements(pObj, New_Star(Star_L));
@@ -68,6 +68,11 @@ void game_scene_update(Scene *self)
         Elements *ele = allEle.arr[i];
         if (ele->dele)
             _Remove_elements(self, ele);
+    }
+
+    if (key_state[ALLEGRO_KEY_ESCAPE])
+    {
+        self->scene_end = true;
     }
 }
 void game_scene_draw(Scene *self)

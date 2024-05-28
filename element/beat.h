@@ -13,7 +13,10 @@ typedef struct _Beat
     double v;             // the velocity of projectile
     Shape *hitbox; // the hitbox of object
     ALLEGRO_COLOR color;
+    int width, height;
+    ALLEGRO_BITMAP *img;
     bool ev;
+    int id;
 } Beat;
 
 Elements *New_Beat(int label, int x, int y, int v, ALLEGRO_COLOR c);

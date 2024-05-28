@@ -14,6 +14,12 @@
 		"timer.h": "c",
 		"circle.h": "c",
 		"boss.h": "c",
-		"allegro_audio.h": "c"
+		"allegro_audio.h": "c",
+		"tree.h": "c",
+		"stdbool.h": "c",
+		"beat.h": "c",
+		"allegro_primitives.h": "c",
+		"global.h": "c",
+		"star.h": "c"
 	}
 }

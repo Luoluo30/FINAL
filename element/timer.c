@@ -34,8 +34,10 @@ void Timer_update(Elements *self)
         {
 
 
-            Elements *bt = New_Beat(Beat_L, 1000, 580, -6, al_map_rgb(100, 100, 100));
+            Elements *bt = New_Beat(Beat_L, 1000, 590, -6, al_map_rgb(255, 255, 255));
             _Register_elements(scene, bt);
+            //Elements *ar = New_Arrow(Arrow_L, 750, 400, -6);
+            //_Register_elements(scene, ar);
             Obj->last = Obj->count;
         }
     }
