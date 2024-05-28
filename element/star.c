@@ -4,11 +4,11 @@
 #define SCREEN_WIDTH 900
 #define SCREEN_HEIGHT 672
 /*
-   [star function]
+   [Star function]
 */
 Elements *New_Star(int label)
 {
-    star *pDerivedObj = (star *)malloc(sizeof(star));
+    Star *pDerivedObj = (Star *)malloc(sizeof(Star));
     Elements *pObj = New_Elements(label);
     // setting derived object member
     pDerivedObj->img = al_load_bitmap("assets/image/star.png");
@@ -18,15 +18,15 @@ Elements *New_Star(int label)
     pDerivedObj->y = -400;
     // setting derived object function
     pObj->pDerivedObj = pDerivedObj;
-    pObj->Update = star_update;
-    pObj->Interact = star_interact;
-    pObj->Draw = star_draw;
-    pObj->Destroy = star_destory;
+    pObj->Update = Star_update;
+    pObj->Interact = Star_interact;
+    pObj->Draw = Star_draw;
+    pObj->Destroy = Star_destory;
     return pObj;
 }
-void star_update(Elements *self, double dt)
+void Star_update(Elements *self, double dt)
 {
-    star *Obj = ((star *)(self->pDerivedObj));
+    Star *Obj = ((Star *)(self->pDerivedObj));
 
     if (key_state[ALLEGRO_KEY_UP]) {
         Obj->x = 240;
@@ -63,15 +63,15 @@ void star_update(Elements *self, double dt)
     }
 }
 
-void star_interact(Elements *self, Elements *tar) {}
-void star_draw(Elements *self)
+void Star_interact(Elements *self, Elements *tar) {}
+void Star_draw(Elements *self)
 {
-    star *Obj = ((star *)(self->pDerivedObj));
+    Star *Obj = ((Star *)(self->pDerivedObj));
     al_draw_bitmap(Obj->img, Obj->x, Obj->y, 0);
 }
-void star_destory(Elements *self)
+void Star_destory(Elements *self)
 {
-    star *Obj = ((star *)(self->pDerivedObj));
+    Star *Obj = ((Star *)(self->pDerivedObj));
     al_destroy_bitmap(Obj->img);
     free(Obj);
     free(self);

@@ -12,6 +12,8 @@
 		"limits": "c",
 		"gamescene.h": "c",
 		"timer.h": "c",
-		"circle.h": "c"
+		"circle.h": "c",
+		"boss.h": "c",
+		"allegro_audio.h": "c"
 	}
 }

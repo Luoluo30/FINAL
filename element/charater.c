@@ -51,7 +51,7 @@ Elements *New_Character(int label)
 void Character_update(Elements *self)
 {
     // use the idea of finite state machine to deal with different state
-    Character *chara = ((Character *)(self->pDerivedObj));
+    /*Character *chara = ((Character *)(self->pDerivedObj));
     if (chara->state == STOP)
     {
         if (key_state[ALLEGRO_KEY_SPACE])
@@ -121,7 +121,7 @@ void Character_update(Elements *self)
             _Register_elements(scene, pro);
             chara->new_proj = true;
         }
-    }
+    }*/
 }
 void Character_draw(Elements *self)
 {
