@@ -30,7 +30,7 @@ typedef struct {
 } Boss;
 
 Elements *New_Boss(int label);
-void Boss_update(Elements *self, double dt);
+void Boss_update(Elements *self);
 void Boss_interact(Elements *self, Elements *tar);
 void Boss_draw(Elements *self);
 void Boss_destroy(Elements *self);

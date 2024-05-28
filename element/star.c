@@ -24,10 +24,10 @@ Elements *New_Star(int label)
     pObj->Destroy = star_destory;
     return pObj;
 }
-void star_update(Elements *self, double dt)
+void star_update(Elements *self)
 {
     star *Obj = ((star *)(self->pDerivedObj));
-
+    double dt=0.5;
     if (key_state[ALLEGRO_KEY_UP]) {
         Obj->x = 240;
         Obj->y = 190;

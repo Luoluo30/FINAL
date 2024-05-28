@@ -43,10 +43,10 @@ Elements *New_Boss(int label)
     return pObj;
 }
 
-void Boss_update(Elements *self, double dt)
+void Boss_update(Elements *self)
 {
     Boss *Obj = ((Boss *)(self->pDerivedObj));
-
+    double dt = 0.5;
     if (key_state[ALLEGRO_KEY_UP]) {
         Obj->current_img = Obj->img_up;
         Obj->width = al_get_bitmap_width(Obj->current_img);

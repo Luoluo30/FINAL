@@ -11,6 +11,7 @@
 #include "../element/beat.h"
 #include "../element/timer.h"
 #include "../element/boss.h"
+#include "../element/star.h"
 #include <allegro5/allegro_audio.h>
 
 /*
