@@ -38,3 +38,4 @@ void Character_draw(Elements *self);
 void Character_destory(Elements *self);
 
 #endif
+

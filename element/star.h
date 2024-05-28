@@ -6,18 +6,18 @@
 /*
    [star object]
 */
-typedef struct _star
+typedef struct _Star
 {
     int x, y;          // the position of image
     int width, height; // the width and height of image
     ALLEGRO_BITMAP *img;
     double switch_timer;
     bool image_switched;
-} star;
+} Star;
 Elements *New_Star(int label);
-void star_update(Elements *self);
-void star_interact(Elements *self, Elements *tar);
-void star_draw(Elements *self);
-void star_destory(Elements *self);
+void Star_update(Elements *self);
+void Star_interact(Elements *self, Elements *tar);
+void Star_draw(Elements *self);
+void Star_destory(Elements *self);
 
 #endif

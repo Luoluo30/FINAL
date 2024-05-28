@@ -1,12 +1,12 @@
 #ifndef GAMESCENE_H_INCLUDED
 #define GAMESCENE_H_INCLUDED
 #include "scene.h"
-#include "../element/element.h"
-#include "../element/charater.h"
-#include "../element/floor.h"
-#include "../element/teleport.h"
-#include "../element/tree.h"
-#include "../element/projectile.h"
+// #include "../element/element.h"
+// #include "../element/charater.h"
+// #include "../element/floor.h"
+// #include "../element/teleport.h"
+// #include "../element/tree.h"
+// #include "../element/projectile.h"
 #include "../element/judge.h"
 #include "../element/beat.h"
 #include "../element/timer.h"
@@ -19,11 +19,11 @@
 */
 typedef enum EleType
 {
-    Floor_L,
-    Teleport_L,
-    Tree_L,
-    Character_L,
-    Projectile_L,
+    // Floor_L,
+    // Teleport_L,
+    // Tree_L,
+    // Character_L,
+    // Projectile_L,
     Judge_L,
     Beat_L,
     Timer_L,

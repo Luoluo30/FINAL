@@ -18,8 +18,8 @@ Elements *New_Projectile(int label, int x, int y, int v)
                                      pDerivedObj->y + pDerivedObj->height / 2,
                                      min(pDerivedObj->width, pDerivedObj->height) / 2);
     // setting the interact object
-    pObj->inter_obj[pObj->inter_len++] = Tree_L;
-    pObj->inter_obj[pObj->inter_len++] = Floor_L;
+    /*pObj->inter_obj[pObj->inter_len++] = Tree_L;
+    pObj->inter_obj[pObj->inter_len++] = Floor_L;*/
     // setting derived object function
     pObj->pDerivedObj = pDerivedObj;
     pObj->Update = Projectile_update;
@@ -45,7 +45,7 @@ void _Projectile_update_position(Elements *self, int dx, int dy)
 }
 void Projectile_interact(Elements *self, Elements *tar)
 {
-    Projectile *Obj = ((Projectile *)(self->pDerivedObj));
+    /*Projectile *Obj = ((Projectile *)(self->pDerivedObj));
     if (tar->label == Floor_L)
     {
         if (Obj->x < 0 - Obj->width)
@@ -60,7 +60,7 @@ void Projectile_interact(Elements *self, Elements *tar)
         {
             self->dele = true;
         }
-    }
+    }*/
 }
 void Projectile_draw(Elements *self)
 {
