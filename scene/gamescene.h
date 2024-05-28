@@ -10,6 +10,7 @@
 #include "../element/judge.h"
 #include "../element/beat.h"
 #include "../element/timer.h"
+#include "../element/boss.h"
 #include <allegro5/allegro_audio.h>
 
 /*
@@ -17,14 +18,16 @@
 */
 typedef enum EleType
 {
-    // Floor_L,
-    // Teleport_L,
-    // Tree_L,
-    // Character_L,
-    // Projectile_L
+    Floor_L,
+    Teleport_L,
+    Tree_L,
+    Character_L,
+    Projectile_L,
     Judge_L,
     Beat_L,
-    Timer_L
+    Timer_L,
+    Boss_L,
+    Star_L
 } EleType;
 typedef struct _GameScene
 {

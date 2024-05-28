@@ -11,7 +11,7 @@ Scene *New_Menu(int label)
     // setting derived object member
     pDerivedObj->font = al_load_ttf_font("assets/font/pirulen.ttf", 12, 0);
     // Load sound
-    /*pDerivedObj->song = al_load_sample("assets/sound/menu.mp3");*/
+    //pDerivedObj->song = al_load_sample("assets/sound/menu.mp3");
     al_reserve_samples(20);
     pDerivedObj->sample_instance = al_create_sample_instance(pDerivedObj->song);
     pDerivedObj->title_x = WIDTH / 2;

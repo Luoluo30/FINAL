@@ -15,7 +15,7 @@ Elements *New_Teleport(int label)
     pDerivedObj->y = HEIGHT - pDerivedObj->height;
     pDerivedObj->activate = false;
     // setting the interact object
-    /*pObj->inter_obj[pObj->inter_len++] = Character_L;*/
+    pObj->inter_obj[pObj->inter_len++] = Character_L;
     // setting derived object function
     pObj->pDerivedObj = pDerivedObj;
     pObj->Update = Teleport_update;
@@ -38,7 +38,7 @@ void Teleport_update(Elements *self)
 }
 void Teleport_interact(Elements *self, Elements *tar)
 {
-    /*if (tar->label == Character_L)
+    if (tar->label == Character_L)
     {
         Character *chara = (Character *)(tar->pDerivedObj);
         Teleport *Obj = (Teleport *)(self->pDerivedObj);
@@ -48,7 +48,7 @@ void Teleport_interact(Elements *self, Elements *tar)
         {
             _Character_update_position(tar, 0 - chara->x, 0);
         }
-    }*/
+    }
 }
 void Teleport_draw(Elements *self)
 {

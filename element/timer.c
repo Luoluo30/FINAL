@@ -30,7 +30,7 @@ void Timer_update(Elements *self)
     {
         if(Obj->count==count[i] && Obj->count!=Obj->last)
         {
-            Elements *bt = New_Beat(Beat_L, 1000, 525, -4, al_map_rgb(100, 100, 100));
+            Elements *bt = New_Beat(Beat_L, 1000, 580, -4, al_map_rgb(100, 100, 100));
             _Register_elements(scene, bt);
             Obj->last = Obj->count;
         }

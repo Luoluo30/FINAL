@@ -7,7 +7,7 @@ Scene *New_GameScene(int label)
     GameScene *pDerivedObj = (GameScene *)malloc(sizeof(GameScene));
     Scene *pObj = New_Scene(label);
     // setting derived object member
-    pDerivedObj->background = al_load_bitmap("assets/image/yamada.jpg");
+    pDerivedObj->background = al_load_bitmap("assets/image/office.jpg");
     pObj->pDerivedObj = pDerivedObj;
     // Load sound
     pDerivedObj->song = al_load_sample("assets/sound/bokuwa.mp3");
@@ -26,10 +26,12 @@ Scene *New_GameScene(int label)
     _Register_elements(pObj, New_Tree(Tree_L));
     _Register_elements(pObj, New_Character(Character_L));*/
     _Register_elements(pObj, New_Judge(Judge_L));
-    _Register_elements(pObj, New_Beat(Beat_L, 505, 525, -4, al_map_rgb(100, 100, 100)));
-    _Register_elements(pObj, New_Beat(Beat_L, 890, 525, -4, al_map_rgb(100, 100, 100)));
-    _Register_elements(pObj, New_Beat(Beat_L, 1111, 525, -4, al_map_rgb(100, 100, 100)));
+    _Register_elements(pObj, New_Beat(Beat_L, 505, 580, -4, al_map_rgb(100, 100, 100)));
+    _Register_elements(pObj, New_Beat(Beat_L, 890, 580, -4, al_map_rgb(100, 100, 100)));
+    _Register_elements(pObj, New_Beat(Beat_L, 1111, 580, -4, al_map_rgb(100, 100, 100)));
     _Register_elements(pObj, New_Timer(Timer_L));
+    _Register_elements(pObj, New_Boss(Boss_L));
+    _Register_elements(pObj, New_Star(Star_L));
     // setting derived object function
     pObj->Update = game_scene_update;
     pObj->Draw = game_scene_draw;

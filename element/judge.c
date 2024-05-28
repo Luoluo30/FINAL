@@ -7,7 +7,7 @@ Elements *New_Judge(int label)
     Judge *pDerivedObj = (Judge *)malloc(sizeof(Judge));
     Elements *pObj = New_Elements(label);
     pDerivedObj->x = 85;
-    pDerivedObj->y = 525;
+    pDerivedObj->y = 580;
     pDerivedObj->r = 40;
     pDerivedObj->color = al_map_rgb(153, 204, 51);
     pDerivedObj->hitbox_pf = New_Circle(pDerivedObj->x,  pDerivedObj->y, 5);

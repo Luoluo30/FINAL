@@ -15,7 +15,7 @@ Elements *New_Floor(int label)
     pDerivedObj->x = 0;
     pDerivedObj->y = 0;
     // setting the interact object
-    /*pObj->inter_obj[pObj->inter_len++] = Character_L;*/
+    pObj->inter_obj[pObj->inter_len++] = Character_L;
     // setting derived object function
     pObj->pDerivedObj = pDerivedObj;
     pObj->Draw = Floor_draw;
@@ -40,7 +40,7 @@ void _Floor_load_map(Floor *floor)
 void Floor_update(Elements *ele) {}
 void Floor_interact(Elements *self, Elements *tar)
 {
-    /*if (tar->label == Character_L)
+    if (tar->label == Character_L)
     {
         Character *chara = (Character *)(tar->pDerivedObj);
         int right_limit = WIDTH - chara->width / 2;
@@ -53,7 +53,7 @@ void Floor_interact(Elements *self, Elements *tar)
         {
             _Character_update_position(tar, (right_limit - chara->x), 0);
         }
-    }*/
+    }
 }
 void Floor_draw(Elements *self)
 {
