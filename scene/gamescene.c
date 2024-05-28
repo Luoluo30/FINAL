@@ -73,6 +73,8 @@ void game_scene_update(Scene *self)
     if (key_state[ALLEGRO_KEY_ESCAPE])
     {
         self->scene_end = true;
+        window = 0;
+        return;
     }
 }
 void game_scene_draw(Scene *self)

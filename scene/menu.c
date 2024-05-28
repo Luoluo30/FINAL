@@ -11,16 +11,16 @@ Scene *New_Menu(int label)
     // setting derived object member
     pDerivedObj->font = al_load_ttf_font("assets/font/vac.otf", 50, 0);
     // Load sound
-    //pDerivedObj->song = al_load_sample("assets/sound/menu.mp3");
+    pDerivedObj->song = al_load_sample("assets/sound/menu.mp3");
     al_reserve_samples(20);
     pDerivedObj->sample_instance = al_create_sample_instance(pDerivedObj->song);
     pDerivedObj->title_x = WIDTH / 2;
     pDerivedObj->title_y = HEIGHT / 2;
-    // Loop the song until the display closes
-    al_set_sample_instance_playmode(pDerivedObj->sample_instance, ALLEGRO_PLAYMODE_LOOP);
+    //Loop the song until the display closes
+    al_set_sample_instance_playmode(pDerivedObj->sample_instance, ALLEGRO_PLAYMODE_ONCE);
     al_restore_default_mixer();
     al_attach_sample_instance_to_mixer(pDerivedObj->sample_instance, al_get_default_mixer());
-    // set the volume of instance
+    //set the volume of instance
     al_set_sample_instance_gain(pDerivedObj->sample_instance, 0.1);
     pObj->pDerivedObj = pDerivedObj;
     // setting derived object function
