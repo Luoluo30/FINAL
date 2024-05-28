@@ -26,9 +26,9 @@ Scene *New_GameScene(int label)
     _Register_elements(pObj, New_Tree(Tree_L));
     _Register_elements(pObj, New_Character(Character_L));*/
     _Register_elements(pObj, New_Judge(Judge_L));
-    _Register_elements(pObj, New_Beat(Beat_L, 505, 580, -4, al_map_rgb(100, 100, 100)));
-    _Register_elements(pObj, New_Beat(Beat_L, 890, 580, -4, al_map_rgb(100, 100, 100)));
-    _Register_elements(pObj, New_Beat(Beat_L, 1111, 580, -4, al_map_rgb(100, 100, 100)));
+    _Register_elements(pObj, New_Beat(Beat_L, 505, 580, -6, al_map_rgb(100, 100, 100)));
+    _Register_elements(pObj, New_Beat(Beat_L, 890, 580, -6, al_map_rgb(100, 100, 100)));
+    _Register_elements(pObj, New_Beat(Beat_L, 1111, 580, -6, al_map_rgb(100, 100, 100)));
     _Register_elements(pObj, New_Timer(Timer_L));
     _Register_elements(pObj, New_Boss(Boss_L));
     _Register_elements(pObj, New_Star(Star_L));
