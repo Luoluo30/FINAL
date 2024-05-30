@@ -10,6 +10,7 @@ Elements *New_Beat(int label, int x, int y, int v, ALLEGRO_COLOR c)
     Beat *pDerivedObj = (Beat *)malloc(sizeof(Beat));
     Elements *pObj = New_Elements(label);
     pDerivedObj->id = rand() % 4;
+    int forward = pDerivedObj->id;
     if(pDerivedObj->id==0)  pDerivedObj->img = al_load_bitmap("assets/image/arrow_up.png");
     else if(pDerivedObj->id==1) pDerivedObj->img = al_load_bitmap("assets/image/arrow_down.png");
     else if(pDerivedObj->id==2) pDerivedObj->img = al_load_bitmap("assets/image/arrow_left.png");
@@ -64,7 +65,61 @@ void Beat_interact(Elements *self, Elements *tar)
 {
     Beat *Obj = ((Beat *)(self->pDerivedObj));
     Judge *judge = ((Judge *)(tar->pDerivedObj));
-    if(key_state[ALLEGRO_KEY_SPACE] && Obj->ev == false)
+    if(key_state[ALLEGRO_KEY_UP] && Obj->ev == false && Obj->id == 0)
+    {
+        if(judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
+        {
+            printf("Perfect\n");
+            self->dele = true;
+        }
+        else if(judge->hitbox_pf->overlap(judge->hitbox_gd, Obj->hitbox))
+        {
+            printf("Good\n");
+            self->dele = true;
+        }
+        else if(judge->hitbox_pf->overlap(judge->hitbox_ok, Obj->hitbox))
+        {
+            printf("Ok\n");
+            self->dele = true;
+        }
+    }
+    if(key_state[ALLEGRO_KEY_DOWN] && Obj->ev == false && Obj->id == 1)
+    {
+        if(judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
+        {
+            printf("Perfect\n");
+            self->dele = true;
+        }
+        else if(judge->hitbox_pf->overlap(judge->hitbox_gd, Obj->hitbox))
+        {
+            printf("Good\n");
+            self->dele = true;
+        }
+        else if(judge->hitbox_pf->overlap(judge->hitbox_ok, Obj->hitbox))
+        {
+            printf("Ok\n");
+            self->dele = true;
+        }
+    }
+    if(key_state[ALLEGRO_KEY_LEFT] && Obj->ev == false && Obj->id == 2)
+    {
+        if(judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
+        {
+            printf("Perfect\n");
+            self->dele = true;
+        }
+        else if(judge->hitbox_pf->overlap(judge->hitbox_gd, Obj->hitbox))
+        {
+            printf("Good\n");
+            self->dele = true;
+        }
+        else if(judge->hitbox_pf->overlap(judge->hitbox_ok, Obj->hitbox))
+        {
+            printf("Ok\n");
+            self->dele = true;
+        }
+    }
+    if(key_state[ALLEGRO_KEY_RIGHT] && Obj->ev == false && Obj->id == 3)
     {
         if(judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
         {
