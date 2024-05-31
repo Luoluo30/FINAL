@@ -1,6 +1,7 @@
 #include "Beat.h"
 #include "perfect.h"
 #include "good.h"
+#include "bad.h"
 #include "../global.h"
 #include "../shapes/Circle.h"
 #include "../scene/sceneManager.h"
@@ -54,6 +55,8 @@ void Beat_update(Elements *self)
     if (Obj->x <= 5 && Obj->ev == false)
     {
         printf("Bad\n");
+        Elements *bd = New_Bad(Bad_L);
+        _Register_elements(scene, bd);
         Obj->ev = true;
     }
     if (Obj->x < -100)

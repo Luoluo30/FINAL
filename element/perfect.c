@@ -10,9 +10,9 @@ Elements *New_Perfect(int label)
     Elements *pObj = New_Elements(label);
     // setting derived object member
     pDerivedObj->img = al_load_bitmap("assets/image/perfect.png");
-    pDerivedObj->x = 20;
+    pDerivedObj->x = 10;
     pDerivedObj->y = 550;
-    pDerivedObj->v = -14;
+    pDerivedObj->v = -10;
     pDerivedObj->width = al_get_bitmap_width(pDerivedObj->img);
     pDerivedObj->height = al_get_bitmap_height(pDerivedObj->img);
     pObj->pDerivedObj = pDerivedObj;

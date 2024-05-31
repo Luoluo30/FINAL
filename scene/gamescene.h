@@ -34,7 +34,8 @@ typedef enum EleType
     Star_L,
     Perfect_L,
     Good_L,
-    Ok_L
+    Ok_L,
+    Bad_L
 } EleType;
 typedef struct _GameScene
 {
