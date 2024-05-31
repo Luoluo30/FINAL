@@ -1,6 +1,9 @@
 #include "Beat.h"
+#include "perfect.h"
+#include "good.h"
 #include "../global.h"
 #include "../shapes/Circle.h"
+#include "../scene/sceneManager.h"
 #include <allegro5/allegro_primitives.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -11,16 +14,15 @@ Elements *New_Beat(int label, int x, int y, int v, ALLEGRO_COLOR c)
     Beat *pDerivedObj = (Beat *)malloc(sizeof(Beat));
     Elements *pObj = New_Elements(label);
     pDerivedObj->id = rand() % 4;
-    if (pDerivedObj->id == 0) pDerivedObj->img = al_load_bitmap("assets/image/arrow_up.png");
-    else if (pDerivedObj->id == 1) pDerivedObj->img = al_load_bitmap("assets/image/arrow_down.png");
-    else if (pDerivedObj->id == 2) pDerivedObj->img = al_load_bitmap("assets/image/arrow_left.png");
-    else if (pDerivedObj->id == 3) pDerivedObj->img = al_load_bitmap("assets/image/arrow_right.png");
+    if (pDerivedObj->id == 0) 
+        pDerivedObj->img = al_load_bitmap("assets/image/arrow_up.png");
+    else if (pDerivedObj->id == 1) 
+        pDerivedObj->img = al_load_bitmap("assets/image/arrow_down.png");
+    else if (pDerivedObj->id == 2) 
+        pDerivedObj->img = al_load_bitmap("assets/image/arrow_left.png");
+    else if (pDerivedObj->id == 3) 
+        pDerivedObj->img = al_load_bitmap("assets/image/arrow_right.png");
     
-    pDerivedObj->img_perfect = al_load_bitmap("assets/image/perfect.png");
-    pDerivedObj->img_good = al_load_bitmap("assets/image/good.png");
-    pDerivedObj->img_ok = al_load_bitmap("assets/image/ok.png");
-    pDerivedObj->img_bad = al_load_bitmap("assets/image/bad.png");
-    pDerivedObj->evaluation_img = NULL;
     
     pDerivedObj->x = x;
     pDerivedObj->y = y;
@@ -73,77 +75,89 @@ void _Beat_update_position(Elements *self, int dx, int dy)
 void Beat_interact(Elements *self, Elements *tar)
 {
     Beat *Obj = ((Beat *)(self->pDerivedObj));
-    Judge *judge = ((Judge *)(tar->pDerivedObj));
-    if (key_state[ALLEGRO_KEY_UP] && Obj->ev == false && Obj->id == 0)
-    {
+    Judge *judge = ((Judge *)(tar->pDerivedObj));   
+    if(Obj->ev==false)
+    {    
         if (judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
         {
-            printf("Perfect\n");
-            self-> dele=true;
+            if(Obj->id==0&&key_state[ALLEGRO_KEY_UP])
+            {
+                Elements *pf = New_Perfect(Perfect_L);
+                _Register_elements(scene, pf);
+                self-> dele=true;
+            }
+            else if((Obj->id==1&&key_state[ALLEGRO_KEY_DOWN]))
+            {
+                Elements *pf = New_Perfect(Perfect_L);
+                _Register_elements(scene, pf);
+                self-> dele=true;
+            }
+            else if((Obj->id==2&&key_state[ALLEGRO_KEY_LEFT]))
+            {
+                Elements *pf = New_Perfect(Perfect_L);
+                _Register_elements(scene, pf);
+                self-> dele=true;
+            }
+            else if((Obj->id==3&&key_state[ALLEGRO_KEY_RIGHT]))
+            {
+                Elements *pf = New_Perfect(Perfect_L);
+                _Register_elements(scene, pf);
+                self-> dele=true;
+            }
         }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_gd, Obj->hitbox))
+        else if (judge->hitbox_gd->overlap(judge->hitbox_gd, Obj->hitbox))
         {
-            printf("Good\n");
-            self-> dele=true;
+            if(Obj->id==0&&key_state[ALLEGRO_KEY_UP])
+            {
+                Elements *gd = New_Good(Good_L);
+                _Register_elements(scene, gd);
+                self-> dele=true;
+            }
+            else if((Obj->id==1&&key_state[ALLEGRO_KEY_DOWN]))
+            {
+                Elements *gd = New_Good(Good_L);
+                _Register_elements(scene, gd);
+                self-> dele=true;
+            }
+            else if((Obj->id==2&&key_state[ALLEGRO_KEY_LEFT]))
+            {
+                Elements *gd = New_Good(Good_L);
+                _Register_elements(scene, gd);
+                self-> dele=true;
+            }
+            else if((Obj->id==3&&key_state[ALLEGRO_KEY_RIGHT]))
+            {
+                Elements *gd = New_Good(Good_L);
+                _Register_elements(scene, gd);
+                self-> dele=true;
+            }
         }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_ok, Obj->hitbox))
+        else if (judge->hitbox_ok->overlap(judge->hitbox_ok, Obj->hitbox))
         {
-            printf("Ok\n");
-            self-> dele=true;
-        }
-    }
-    if (key_state[ALLEGRO_KEY_DOWN] && Obj->ev == false && Obj->id == 1)
-    {
-        if (judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
-        {
-            printf("Perfect\n");
-            self-> dele=true;
-        }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_gd, Obj->hitbox))
-        {
-            printf("Good\n");
-            self-> dele=true;
-        }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_ok, Obj->hitbox))
-        {
-            printf("Ok\n");
-            self-> dele=true;
-        }
-    }
-    if (key_state[ALLEGRO_KEY_LEFT] && Obj->ev == false && Obj->id == 2)
-    {
-        if (judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
-        {
-            printf("Perfect\n");
-            self-> dele=true;
-        }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_gd, Obj->hitbox))
-        {
-            printf("Good\n");
-            self-> dele=true;
-        }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_ok, Obj->hitbox))
-        {
-            printf("Ok\n");
-            self-> dele=true;
-        }
-    }
-    if (key_state[ALLEGRO_KEY_RIGHT] && Obj->ev == false && Obj->id == 3)
-    {
-        if (judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
-        {
-            printf("Perfect\n");
-            self-> dele=true;
-        }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_gd, Obj->hitbox))
-        {
-            printf("Good\n");
-            self-> dele=true;
-        }
-        else if (judge->hitbox_pf->overlap(judge->hitbox_ok, Obj->hitbox))
-        {
-            printf("Ok\n");
-            self-> dele=true;
+            if(Obj->id==0&&key_state[ALLEGRO_KEY_UP])
+            {
+                Elements *okay = New_Ok(Ok_L);
+                _Register_elements(scene, okay);
+                self-> dele=true;
+            }
+            else if((Obj->id==1&&key_state[ALLEGRO_KEY_DOWN]))
+            {
+                Elements *okay = New_Ok(Ok_L);
+                _Register_elements(scene, okay);
+                self-> dele=true;
+            }
+            else if((Obj->id==2&&key_state[ALLEGRO_KEY_LEFT]))
+            {
+                Elements *okay = New_Ok(Ok_L);
+                _Register_elements(scene, okay);
+                self-> dele=true;
+            }
+            else if((Obj->id==3&&key_state[ALLEGRO_KEY_RIGHT]))
+            {
+                Elements *okay = New_Ok(Ok_L);
+                _Register_elements(scene, okay);
+                self-> dele=true;
+            }
         }
     }
 }
@@ -170,10 +184,6 @@ void Beat_destory(Elements *self)
 {
     Beat *Obj = ((Beat *)(self->pDerivedObj));
     al_destroy_bitmap(Obj->img);
-    al_destroy_bitmap(Obj->img_perfect);
-    al_destroy_bitmap(Obj->img_good);
-    al_destroy_bitmap(Obj->img_ok);
-    al_destroy_bitmap(Obj->img_bad);
     free(Obj->hitbox);
     free(Obj);
     free(self);

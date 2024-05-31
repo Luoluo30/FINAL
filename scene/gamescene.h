@@ -12,6 +12,9 @@
 #include "../element/timer.h"
 #include "../element/boss.h"
 #include "../element/star.h"
+#include "../element/perfect.h"
+#include "../element/good.h"
+#include "../element/ok.h"
 #include <allegro5/allegro_audio.h>
 
 /*
@@ -29,6 +32,9 @@ typedef enum EleType
     Timer_L,
     Boss_L,
     Star_L,
+    Perfect_L,
+    Good_L,
+    Ok_L
 } EleType;
 typedef struct _GameScene
 {

@@ -20,6 +20,7 @@
 		"beat.h": "c",
 		"allegro_primitives.h": "c",
 		"global.h": "c",
-		"star.h": "c"
+		"star.h": "c",
+		"perfect.h": "c"
 	}
 }

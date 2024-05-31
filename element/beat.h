@@ -15,10 +15,6 @@ typedef struct _Beat
     ALLEGRO_COLOR color;
     int width, height;
     ALLEGRO_BITMAP *img;
-    ALLEGRO_BITMAP *img_perfect;
-    ALLEGRO_BITMAP *img_good;
-    ALLEGRO_BITMAP *img_ok;
-    ALLEGRO_BITMAP *img_bad;
     ALLEGRO_BITMAP *evaluation_img;
     bool ev;
     int id;
