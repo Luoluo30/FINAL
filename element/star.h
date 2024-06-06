@@ -8,7 +8,7 @@
 */
 typedef struct _Star
 {
-    int x, y;          // the position of image
+    int x, y, x2, y2;          // the position of image
     int width, height; // the width and height of image
     ALLEGRO_BITMAP *img;
     double switch_timer;

@@ -9,7 +9,7 @@ Elements *New_Judge(int label)
     pDerivedObj->x = 85;
     pDerivedObj->y = 590;
     pDerivedObj->r = 53;
-    pDerivedObj->color = al_map_rgb(153, 204, 51);
+    pDerivedObj->color = al_map_rgb(166, 255, 166);
     pDerivedObj->hitbox_pf = New_Circle(pDerivedObj->x,  pDerivedObj->y, 5);
     pDerivedObj->hitbox_gd = New_Circle(pDerivedObj->x,  pDerivedObj->y, 30);
     pDerivedObj->hitbox_ok = New_Circle(pDerivedObj->x,  pDerivedObj->y, 50);
@@ -28,15 +28,15 @@ Elements *New_Judge(int label)
 }
 void Judge_update(Elements *self)
 {
-    Judge *Obj = ((Judge *)(self->pDerivedObj));
-    if(key_state[ALLEGRO_KEY_SPACE])
-    {
-        Obj->color = al_map_rgb(0, 0, 0);
-    }
-    else
-    {
-        Obj->color = al_map_rgb(153, 204, 51);
-    }
+    //Judge *Obj = ((Judge *)(self->pDerivedObj));
+    // if(key_state[ALLEGRO_KEY_SPACE])
+    // {
+    //     Obj->color = al_map_rgb(0, 0, 0);
+    // }
+    // else
+    // {
+    //     Obj->color = al_map_rgb(153, 204, 51);
+    // }
 }
 void Judge_interact(Elements *self, Elements *tar)
 {
@@ -45,7 +45,8 @@ void Judge_interact(Elements *self, Elements *tar)
 void Judge_draw(Elements *self)
 {
     Judge *Obj = ((Judge *)(self->pDerivedObj));
-    al_draw_circle(Obj->x, Obj->y, Obj->r, Obj->color, 10);
+    al_draw_circle(Obj->x, Obj->y, Obj->r, al_map_rgb(0, 0, 0), 6);
+    al_draw_filled_circle(Obj->x, Obj->y, Obj->r, Obj->color);
 }
 void Judge_destory(Elements *self)
 {

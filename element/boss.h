@@ -21,12 +21,20 @@ typedef struct {
     ALLEGRO_BITMAP *img_left;
     ALLEGRO_BITMAP *img_right;
     ALLEGRO_BITMAP *current_img;
+    ALLEGRO_BITMAP *img2;
+    ALLEGRO_BITMAP *img_up2;
+    ALLEGRO_BITMAP *img_down2;
+    ALLEGRO_BITMAP *img_left2;
+    ALLEGRO_BITMAP *img_right2;
+    ALLEGRO_BITMAP *current_img2;
     int width;
     int height;
-    float x, y;
+    float x, y, x2, y2;
     Shape *hitbox;
     double switch_timer;
     bool image_switched;
+    double switch_timer2;
+    bool image_switched2;
 } Boss;
 
 Elements *New_Boss(int label);
