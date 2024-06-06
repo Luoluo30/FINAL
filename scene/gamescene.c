@@ -1,4 +1,5 @@
 #include "gamescene.h"
+#include "../element/timer.h"
 /*
    [GameScene function]
 */
@@ -7,8 +8,13 @@ Scene *New_GameScene(int label)
     GameScene *pDerivedObj = (GameScene *)malloc(sizeof(GameScene));
     Scene *pObj = New_Scene(label);
     // setting derived object member
-    pDerivedObj->background = al_load_bitmap("assets/image/office.jpg");
+    pDerivedObj->office = al_load_bitmap("assets/image/office.jpg");
+    pDerivedObj->hell = al_load_bitmap("assets/image/hell.jpg");
+    pDerivedObj->background = pDerivedObj->office;
     pObj->pDerivedObj = pDerivedObj;
+    pDerivedObj->t = al_create_timer(1.0/60);
+    al_start_timer(pDerivedObj->t);
+
     // Load sound
     pDerivedObj->song = al_load_sample("assets/sound/bokuwa.mp3");
     al_reserve_samples(20);
@@ -19,7 +25,7 @@ Scene *New_GameScene(int label)
     al_attach_sample_instance_to_mixer(pDerivedObj->sample_instance, al_get_default_mixer());
     // set the volume of instance
     al_set_sample_instance_gain(pDerivedObj->sample_instance, 0.4);
-    pObj->pDerivedObj = pDerivedObj;
+
     // register element
     /*_Register_elements(pObj, New_Floor(Floor_L));
     _Register_elements(pObj, New_Teleport(Teleport_L));
@@ -38,45 +44,60 @@ Scene *New_GameScene(int label)
     pObj->Destroy = game_scene_destroy;
     return pObj;
 }
+
 void game_scene_update(Scene *self)
 {
-    // update every element
+    GameScene *Obj = ((GameScene *)(self->pDerivedObj));
+    // 获取计时器元素
+    Timer *time = NULL;
     ElementVec allEle = _Get_all_elements(self);
-    for (int i = 0; i < allEle.len; i++)
-    {
+    for (int i = 0; i < allEle.len; i++) {
+        Elements *ele = allEle.arr[i];
+        if (ele->label == Timer_L) {
+            time = (Timer *)ele->pDerivedObj;
+            break;
+        }
+    }
+
+    // update every element
+    for (int i = 0; i < allEle.len; i++) {
         allEle.arr[i]->Update(allEle.arr[i]);
     }
 
     // run interact for every element
-    for (int i = 0; i < allEle.len; i++)
-    {
+    for (int i = 0; i < allEle.len; i++) {
         Elements *ele = allEle.arr[i];
         // run every interact object
-        for (int j = 0; j < ele->inter_len; j++)
-        {
+        for (int j = 0; j < ele->inter_len; j++) {
             int inter_label = ele->inter_obj[j];
             ElementVec labelEle = _Get_label_elements(self, inter_label);
-            for (int i = 0; i < labelEle.len; i++)
-            {
-                ele->Interact(ele, labelEle.arr[i]);
+            for (int k = 0; k < labelEle.len; k++) {
+                ele->Interact(ele, labelEle.arr[k]);
             }
         }
     }
     // remove element
-    for (int i = 0; i < allEle.len; i++)
-    {
+    for (int i = 0; i < allEle.len; i++) {
         Elements *ele = allEle.arr[i];
-        if (ele->dele)
+        if (ele->dele) {
             _Remove_elements(self, ele);
+        }
     }
 
-    if (key_state[ALLEGRO_KEY_ESCAPE])
-    {
+    if (key_state[ALLEGRO_KEY_ESCAPE]) {
         self->scene_end = true;
         window = 0;
         return;
     }
+    // 換背景
+    if (time && time->count == 9000) {
+        Obj->background = Obj->hell;
+    }
+    if (time && time->count == 10000) {
+        Obj->background = Obj->office;
+    }
 }
+
 void game_scene_draw(Scene *self)
 {
     al_clear_to_color(al_map_rgb(0, 0, 0));

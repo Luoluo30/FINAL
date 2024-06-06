@@ -40,16 +40,16 @@ void Timer_update(Elements *self)
             Obj->last = Obj->count;
         }
     }
-    if(Obj->count == 172) //9000
-        {
-            Elements *gun = New_Gun(Gun_L);
-            _Register_elements(scene, gun);
-        }
-    if(Obj->count == 702) //10000
-        {
-            Elements *gun = New_Gun(Gun_L);
-            _Remove_elements(scene, gun);
-        }
+    if(Obj->count == 9000) //9000
+    {
+        Elements *gun = New_Gun(Gun_L);
+        _Register_elements(scene, gun);
+    }
+    if(Obj->count == 10000) //10000
+    {
+        Elements *gun = New_Gun(Gun_L);
+        _Remove_elements(scene, gun);
+    }
 }
 void _Timer_update_position(Elements *self, int dx, int dy)
 {

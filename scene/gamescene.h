@@ -42,9 +42,11 @@ typedef enum EleType
 typedef struct _GameScene
 {
     ALLEGRO_BITMAP *background;
+    ALLEGRO_BITMAP *office;
+    ALLEGRO_BITMAP *hell;
     ALLEGRO_SAMPLE *song;
     ALLEGRO_SAMPLE_INSTANCE *sample_instance;
-
+    ALLEGRO_TIMER *t;
 } GameScene;
 Scene *New_GameScene(int label);
 void game_scene_update(Scene *self);
