@@ -8,6 +8,7 @@
 #include <allegro5/allegro_primitives.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "score.h"
 
 //for the first beat
 Elements *New_Beat(int label, int x, int y, int v, ALLEGRO_COLOR c)
@@ -88,24 +89,28 @@ void Beat_interact(Elements *self, Elements *tar)
                 Elements *pf = New_Perfect(Perfect_L);
                 _Register_elements(scene, pf);
                 self-> dele=true;
+                score_increment = 1000; 
             }
             else if((Obj->id==1&&key_state[ALLEGRO_KEY_DOWN]))
             {
                 Elements *pf = New_Perfect(Perfect_L);
                 _Register_elements(scene, pf);
                 self-> dele=true;
+                score_increment = 1000;
             }
             else if((Obj->id==2&&key_state[ALLEGRO_KEY_LEFT]))
             {
                 Elements *pf = New_Perfect(Perfect_L);
                 _Register_elements(scene, pf);
                 self-> dele=true;
+                score_increment = 1000; 
             }
             else if((Obj->id==3&&key_state[ALLEGRO_KEY_RIGHT]))
             {
                 Elements *pf = New_Perfect(Perfect_L);
                 _Register_elements(scene, pf);
                 self-> dele=true;
+                score_increment = 1000; 
             }
         }
         else if (judge->hitbox_gd->overlap(judge->hitbox_gd, Obj->hitbox))
@@ -115,24 +120,28 @@ void Beat_interact(Elements *self, Elements *tar)
                 Elements *gd = New_Good(Good_L);
                 _Register_elements(scene, gd);
                 self-> dele=true;
+                score_increment = 700; 
             }
             else if((Obj->id==1&&key_state[ALLEGRO_KEY_DOWN]))
             {
                 Elements *gd = New_Good(Good_L);
                 _Register_elements(scene, gd);
                 self-> dele=true;
+                score_increment = 700; 
             }
             else if((Obj->id==2&&key_state[ALLEGRO_KEY_LEFT]))
             {
                 Elements *gd = New_Good(Good_L);
                 _Register_elements(scene, gd);
                 self-> dele=true;
+                score_increment = 700; 
             }
             else if((Obj->id==3&&key_state[ALLEGRO_KEY_RIGHT]))
             {
                 Elements *gd = New_Good(Good_L);
                 _Register_elements(scene, gd);
                 self-> dele=true;
+                score_increment = 700; 
             }
         }
         else if (judge->hitbox_ok->overlap(judge->hitbox_ok, Obj->hitbox))
@@ -142,24 +151,28 @@ void Beat_interact(Elements *self, Elements *tar)
                 Elements *okay = New_Ok(Ok_L);
                 _Register_elements(scene, okay);
                 self-> dele=true;
+                score_increment = 300; 
             }
             else if((Obj->id==1&&key_state[ALLEGRO_KEY_DOWN]))
             {
                 Elements *okay = New_Ok(Ok_L);
                 _Register_elements(scene, okay);
                 self-> dele=true;
+                score_increment = 300; 
             }
             else if((Obj->id==2&&key_state[ALLEGRO_KEY_LEFT]))
             {
                 Elements *okay = New_Ok(Ok_L);
                 _Register_elements(scene, okay);
                 self-> dele=true;
+                score_increment = 300; 
             }
             else if((Obj->id==3&&key_state[ALLEGRO_KEY_RIGHT]))
             {
                 Elements *okay = New_Ok(Ok_L);
                 _Register_elements(scene, okay);
                 self-> dele=true;
+                score_increment = 300; 
             }
         }
     }
