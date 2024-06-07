@@ -38,6 +38,7 @@ Scene *New_GameScene(int label)
     _Register_elements(pObj, New_Timer(Timer_L));
     _Register_elements(pObj, New_Boss(Boss_L));
     _Register_elements(pObj, New_Star(Star_L));
+    _Register_elements(pObj, New_Score(Score_L));
     // setting derived object function
     pObj->Update = game_scene_update;
     pObj->Draw = game_scene_draw;
@@ -96,6 +97,21 @@ void game_scene_update(Scene *self)
     if (time && time->count == 10000) {
         Obj->background = Obj->office;
     }
+    // skip to chorus
+    // if(key_state[ALLEGRO_KEY_TAB]){
+    //     time->count = 8990;
+    //     // Load sound
+    //     al_destroy_sample(Obj->song);
+    //     al_destroy_sample_instance(Obj->sample_instance);
+    //     Obj->song = al_load_sample("assets/sound/bokuwa_chorus.mp3");
+    //     Obj->sample_instance = al_create_sample_instance(Obj->song);
+    //     // Play the song once
+    //     al_set_sample_instance_playmode(Obj->sample_instance, ALLEGRO_PLAYMODE_ONCE);
+    //     al_restore_default_mixer();
+    //     al_attach_sample_instance_to_mixer(Obj->sample_instance, al_get_default_mixer());
+    //     // set the volume of instance
+    //     al_set_sample_instance_gain(Obj->sample_instance, 0.4);
+    // }
 }
 
 void game_scene_draw(Scene *self)

@@ -50,6 +50,10 @@ void Timer_update(Elements *self)
         Elements *gun = New_Gun(Gun_L);
         _Remove_elements(scene, gun);
     }
+    // if(key_state[ALLEGRO_KEY_TAB]){
+    //     Obj->count = 8990;
+    //     Obj->x = WIDTH/14220*8990;
+    // }
 }
 void _Timer_update_position(Elements *self, int dx, int dy)
 {

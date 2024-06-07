@@ -16,6 +16,7 @@
 #include "../element/good.h"
 #include "../element/ok.h"
 #include "../element/gun.h"
+#include "../element/score.h"
 #include <allegro5/allegro_audio.h>
 
 /*
@@ -37,7 +38,8 @@ typedef enum EleType
     Good_L,
     Ok_L,
     Bad_L,
-    Gun_L
+    Gun_L,
+    Score_L
 } EleType;
 typedef struct _GameScene
 {

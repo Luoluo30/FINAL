@@ -54,7 +54,7 @@ void Beat_update(Elements *self)
     _Beat_update_position(self, Obj->v, 0);
     if (Obj->x <= 5 && Obj->ev == false)
     {
-        printf("Bad\n");
+        //printf("Bad\n");
         Elements *bd = New_Bad(Bad_L);
         _Register_elements(scene, bd);
         Obj->ev = true;
