@@ -1,5 +1,5 @@
-#ifndef Bad_H_INCLUDED
-#define Bad_H_INCLUDED
+#ifndef BAD_H_INCLUDED
+#define BAD_H_INCLUDED
 #include "element.h"
 #include "../scene/gamescene.h" // for element label
 #include "../shapes/Shape.h"

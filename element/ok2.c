@@ -1,12 +1,12 @@
-#include "ok.h"
+#include "ok2.h"
 #include "../shapes/Rectangle.h"
 
 /*
    [Ok function]
 */
-Elements *New_Ok(int label)
+Elements *New_Ok2(int label)
 {
-    Ok *pDerivedObj = (Ok *)malloc(sizeof(Ok));
+    Ok2 *pDerivedObj = (Ok2 *)malloc(sizeof(Ok2));
     Elements *pObj = New_Elements(label);
     // setting derived object member
     pDerivedObj->img = al_load_bitmap("assets/image/Ok.png");
@@ -17,34 +17,34 @@ Elements *New_Ok(int label)
     pDerivedObj->height = al_get_bitmap_height(pDerivedObj->img);
     pObj->pDerivedObj = pDerivedObj;
     // setting derived object function
-    pObj->Draw = Ok_draw;
-    pObj->Update = Ok_update;
-    pObj->Interact = Ok_interact;
-    pObj->Destroy = Ok_destory;
+    pObj->Draw = Ok2_draw;
+    pObj->Update = Ok2_update;
+    pObj->Interact = Ok2_interact;
+    pObj->Destroy = Ok2_destory;
     return pObj;
 }
-void Ok_update(Elements *self)
+void Ok2_update(Elements *self)
 {
-    Ok *pf = ((Ok *)(self->pDerivedObj));
-    _Ok_update_position(self, 0, pf->v);
+    Ok2 *pf = ((Ok2 *)(self->pDerivedObj));
+    _Ok2_update_position(self, 0, pf->v);
     if(pf->y<200)
         self->dele = true;
 }
-void _Ok_update_position(Elements *self, int dx, int dy)
+void _Ok2_update_position(Elements *self, int dx, int dy)
 {
-    Ok *pf = ((Ok *)(self->pDerivedObj));
+    Ok2 *pf = ((Ok2 *)(self->pDerivedObj));
     pf->x += dx;
     pf->y += dy;
 }
-void Ok_interact(Elements *self, Elements *tar) {}
-void Ok_draw(Elements *self)
+void Ok2_interact(Elements *self, Elements *tar) {}
+void Ok2_draw(Elements *self)
 {
-    Ok *Obj = ((Ok *)(self->pDerivedObj));
+    Ok2 *Obj = ((Ok2 *)(self->pDerivedObj));
     al_draw_bitmap(Obj->img, Obj->x, Obj->y, 0);
 }
-void Ok_destory(Elements *self)
+void Ok2_destory(Elements *self)
 {
-    Ok *Obj = ((Ok *)(self->pDerivedObj));
+    Ok2 *Obj = ((Ok2 *)(self->pDerivedObj));
     al_destroy_bitmap(Obj->img);
     free(Obj);
     free(self);

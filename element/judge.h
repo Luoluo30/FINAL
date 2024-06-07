@@ -1,5 +1,5 @@
-#ifndef Judge_H_INCLUDED
-#define Judge_H_INCLUDED
+#ifndef JUDGE_H_INCLUDED
+#define JUDGE_H_INCLUDED
 #include "element.h"
 #include "../scene/gamescene.h" // for element label
 #include "../shapes/Shape.h"

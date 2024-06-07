@@ -1,5 +1,5 @@
-#ifndef Ok_H_INCLUDED
-#define Ok_H_INCLUDED
+#ifndef OK_H_INCLUDED
+#define OK_H_INCLUDED
 #include "element.h"
 #include "../scene/gamescene.h" // for element label
 #include "../shapes/Shape.h"

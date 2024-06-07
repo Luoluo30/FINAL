@@ -1,5 +1,5 @@
-#ifndef Perfect_H_INCLUDED
-#define Perfect_H_INCLUDED
+#ifndef PERFECT_H_INCLUDED
+#define PERFECT_H_INCLUDED
 #include "element.h"
 #include "../scene/gamescene.h" // for element label
 #include "../shapes/Shape.h"

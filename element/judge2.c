@@ -1,10 +1,10 @@
-#include "judge.h"
+#include "judge2.h"
 #include "../global.h"
 #include "../shapes/Circle.h"
 #include <allegro5/allegro_primitives.h>
-Elements *New_Judge(int label)
+Elements *New_Judge2(int label)
 {
-    Judge *pDerivedObj = (Judge *)malloc(sizeof(Judge));
+    Judge2 *pDerivedObj = (Judge2 *)malloc(sizeof(Judge2));
     Elements *pObj = New_Elements(label);
     pDerivedObj->x = 85;
     pDerivedObj->y = 590;
@@ -15,18 +15,18 @@ Elements *New_Judge(int label)
     pDerivedObj->hitbox_ok = New_Circle(pDerivedObj->x,  pDerivedObj->y, 50);
     
     // setting the interact object
-    pObj->inter_obj[pObj->inter_len++] = Beat_L;
+    pObj->inter_obj[pObj->inter_len++] = Beat2_L;
     /*pObj->inter_obj[pObj->inter_len++] = Tree_L;*/
 
     // setting derived object function
     pObj->pDerivedObj = pDerivedObj;
-    pObj->Draw = Judge_draw;
-    pObj->Update = Judge_update;
-    pObj->Interact = Judge_interact;
-    pObj->Destroy = Judge_destory;
+    pObj->Draw = Judge2_draw;
+    pObj->Update = Judge2_update;
+    pObj->Interact = Judge2_interact;
+    pObj->Destroy = Judge2_destory;
     return pObj;
 }
-void Judge_update(Elements *self)
+void Judge2_update(Elements *self)
 {
     //Judge *Obj = ((Judge *)(self->pDerivedObj));
     // if(key_state[ALLEGRO_KEY_SPACE])
@@ -38,19 +38,19 @@ void Judge_update(Elements *self)
     //     Obj->color = al_map_rgb(153, 204, 51);
     // }
 }
-void Judge_interact(Elements *self, Elements *tar)
+void Judge2_interact(Elements *self, Elements *tar)
 {
 
 }
-void Judge_draw(Elements *self)
+void Judge2_draw(Elements *self)
 {
-    Judge *Obj = ((Judge *)(self->pDerivedObj));
+    Judge2 *Obj = ((Judge2 *)(self->pDerivedObj));
     al_draw_circle(Obj->x, Obj->y, Obj->r, al_map_rgb(0, 0, 0), 6);
     al_draw_filled_circle(Obj->x, Obj->y, Obj->r, Obj->color);
 }
-void Judge_destory(Elements *self)
+void Judge2_destory(Elements *self)
 {
-    Judge *Obj = ((Judge *)(self->pDerivedObj));
+    Judge2 *Obj = ((Judge2 *)(self->pDerivedObj));
     free(Obj->hitbox_pf);
     free(Obj->hitbox_gd);
     free(Obj);

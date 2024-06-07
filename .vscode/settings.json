@@ -21,6 +21,7 @@
 		"allegro_primitives.h": "c",
 		"global.h": "c",
 		"star.h": "c",
-		"perfect.h": "c"
+		"perfect.h": "c",
+		"gamescene2.h": "c"
 	}
 }

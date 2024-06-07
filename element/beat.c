@@ -1,4 +1,4 @@
-#include "Beat.h"
+#include "beat.h"
 #include "perfect.h"
 #include "good.h"
 #include "bad.h"

@@ -1,5 +1,5 @@
-#ifndef Star_H_INCLUDED
-#define Star_H_INCLUDED
+#ifndef STAR_H_INCLUDED
+#define STAR_H_INCLUDED
 #include "element.h"
 #include "../scene/gamescene.h" // for element label
 #include "../shapes/Shape.h"

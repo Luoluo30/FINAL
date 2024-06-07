@@ -1,7 +1,7 @@
-#ifndef GUN_H_INCLUDED
-#define GUN_H_INCLUDED
+#ifndef GUN2_H_INCLUDED
+#define GUN2_H_INCLUDED
 #include "element.h"
-#include "../scene/gamescene.h" // for element label
+#include "../scene/gamescene2.h" // for element label
 #include "../shapes/Shape.h"
 #define MAX_BLOODS 3
 /*
@@ -10,7 +10,7 @@
 typedef struct {
     float x, y;
     double start_time;
-} Blood;
+} Blood2;
 
 typedef struct {
     ALLEGRO_BITMAP *gl;
@@ -30,13 +30,13 @@ typedef struct {
     bool image_switched2;
     bool show_blood;
     int blood_x, blood_y;
-    Blood bloods[MAX_BLOODS];
-} Gun;
+    Blood2 bloods[MAX_BLOODS];
+} Gun2;
 
-Elements *New_Gun(int label);
-void Gun_update(Elements *self);
-void Gun_interact(Elements *self, Elements *tar);
-void Gun_draw(Elements *self);
-void Gun_destroy(Elements *self);
-void handle_key_down(Elements *gun, int keycode);
+Elements *New_Gun2(int label);
+void Gun2_update(Elements *self);
+void Gun2_interact(Elements *self, Elements *tar);
+void Gun2_draw(Elements *self);
+void Gun2_destroy(Elements *self);
+void handle_key_down(Elements *gun2, int keycode);
 #endif
