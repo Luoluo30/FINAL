@@ -22,6 +22,7 @@
 		"global.h": "c",
 		"star.h": "c",
 		"perfect.h": "c",
-		"gamescene2.h": "c"
+		"gamescene2.h": "c",
+		"bad.h": "c"
 	}
 }

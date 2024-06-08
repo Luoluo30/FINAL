@@ -13,6 +13,8 @@ typedef struct _Star2
     ALLEGRO_BITMAP *img;
     double switch_timer;
     bool image_switched;
+    int id;
+    bool key_pressed;
 } Star2;
 Elements *New_Star2(int label);
 void Star2_update(Elements *self);
