@@ -84,7 +84,7 @@ void Beat2_interact(Elements *self, Elements *tar)
     {    
         if (judge->hitbox_pf->overlap(judge->hitbox_pf, Obj->hitbox))
         {
-            if(key_state[ALLEGRO_KEY_SPACE])
+            if(key_state[ALLEGRO_KEY_UP])
             {
                 Elements *pf = New_Perfect2(Perfect2_L);
                 _Register_elements(scene, pf);
@@ -94,7 +94,7 @@ void Beat2_interact(Elements *self, Elements *tar)
         }
         else if (judge->hitbox_gd->overlap(judge->hitbox_gd, Obj->hitbox))
         {
-            if(key_state[ALLEGRO_KEY_SPACE])
+            if(key_state[ALLEGRO_KEY_UP])
             {
                 Elements *gd = New_Good2(Good2_L);
                 _Register_elements(scene, gd);
@@ -104,7 +104,7 @@ void Beat2_interact(Elements *self, Elements *tar)
         }
         else if (judge->hitbox_ok->overlap(judge->hitbox_ok, Obj->hitbox))
         {
-            if(key_state[ALLEGRO_KEY_SPACE])
+            if(key_state[ALLEGRO_KEY_UP])
             {
                 Elements *okay = New_Ok2(Ok2_L);
                 _Register_elements(scene, okay);

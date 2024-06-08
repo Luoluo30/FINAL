@@ -11,7 +11,8 @@ typedef enum {
     UP2,
     DOWN2,
     LEFT2,
-    RIGHT2
+    RIGHT2,
+    SPACE2
 } BossState2;
 
 typedef struct {
@@ -35,6 +36,8 @@ typedef struct {
     bool image_switched;
     double switch_timer2;
     bool image_switched2;
+    int id;
+    bool key_pressed;
 } Boss2;
 
 Elements *New_Boss2(int label);
