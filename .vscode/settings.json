@@ -23,6 +23,7 @@
 		"star.h": "c",
 		"perfect.h": "c",
 		"gamescene2.h": "c",
-		"bad.h": "c"
+		"bad.h": "c",
+		"score.h": "c"
 	}
 }

@@ -132,7 +132,7 @@ void _Gun_update_position(Elements *self, int dx, int dy)
 
 void Gun_interact(Elements *self, Elements *tar)
 {
-    Gun *Obj = ((Gun*)(self->pDerivedObj));
+    //Gun *Obj = ((Gun*)(self->pDerivedObj));
     if (tar->label == Timer_L)
     {
         Timer *tm = ((Timer *)(tar->pDerivedObj));

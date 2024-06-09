@@ -46,6 +46,11 @@ void Timer_update(Elements *self)
         Elements *gun = New_Gun(Gun_L);
         _Register_elements(scene, gun);
     }
+    if(Obj->count == 9050) //9000
+    {
+        Elements *gunc = New_Guncircle(Guncircle_L);
+        _Register_elements(scene, gunc);
+    }
     // if(Obj->count == 10000) //10000
     // {
     //     Elements *gun = New_Gun(Gun_L);
