@@ -13,6 +13,7 @@ typedef struct _Timer2
     int count;
     int last;
     int x, y;
+    bool b;
 } Timer2;
 
 Elements *New_Timer2(int label);

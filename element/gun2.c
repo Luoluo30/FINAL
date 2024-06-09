@@ -44,6 +44,7 @@ Elements *New_Gun2(int label)
     pDerivedObj->y2 = (SCREEN_HEIGHT - pDerivedObj->height * scale_y) / 2 + 100; //+10 normally
 
     // setting the interact object
+    pObj->inter_obj[pObj->inter_len++] = Timer2_L;
     pObj->pDerivedObj = pDerivedObj;
     pObj->Update = Gun2_update;
     pObj->Interact = Gun2_interact;
@@ -131,6 +132,13 @@ void _Gun2_update_position(Elements *self, int dx, int dy)
 
 void Gun2_interact(Elements *self, Elements *tar)
 {
+    //Gun *Obj = ((Gun*)(self->pDerivedObj));
+    if (tar->label == Timer2_L)
+    {
+        Timer2 *tm = ((Timer2 *)(tar->pDerivedObj));
+        if (tm->count >= 3012)
+            self->dele = true;
+    }
 }
 
 void Gun2_draw(Elements *self)
