@@ -32,14 +32,14 @@ Scene *New_GameScene2(int label)
     _Register_elements(pObj, New_Tree(Tree_L));
     _Register_elements(pObj, New_Character(Character_L));*/
     _Register_elements(pObj, New_Judge2(Judge2_L));
-    // _Register_elements(pObj, New_Beat2(Beat2_L, 1280, 590, -17, al_map_rgb(255, 255, 111)));
-    // _Register_elements(pObj, New_Beat2(Beat2_L, 1650, 590, -17, al_map_rgb(255, 255, 111)));
-    // _Register_elements(pObj, New_Beat2(Beat2_L, 1980, 590, -17, al_map_rgb(255, 255, 111)));
-    // _Register_elements(pObj, New_Beat2(Beat2_L, 2300, 590, -17, al_map_rgb(255, 255, 111)));
-    // _Register_elements(pObj, New_Beat2(Beat2_L, 2590, 590, -17, al_map_rgb(255, 255, 111)));
-    //  _Register_elements(pObj, New_Beat2(Beat2_L, 2850, 590, -17, al_map_rgb(255, 255, 111)));
-    //  _Register_elements(pObj, New_Beat2(Beat2_L, 3100, 590, -17, al_map_rgb(255, 255, 111)));
-    //  _Register_elements(pObj, New_Beat2(Beat2_L, 3390, 590, -17, al_map_rgb(255, 255, 111)));
+    _Register_elements(pObj, New_Beat2(Beat2_L, 1280, 590, -17, al_map_rgb(255, 255, 111)));
+    _Register_elements(pObj, New_Beat2(Beat2_L, 1650, 590, -17, al_map_rgb(255, 255, 111)));
+    _Register_elements(pObj, New_Beat2(Beat2_L, 1980, 590, -17, al_map_rgb(255, 255, 111)));
+    _Register_elements(pObj, New_Beat2(Beat2_L, 2300, 590, -17, al_map_rgb(255, 255, 111)));
+    _Register_elements(pObj, New_Beat2(Beat2_L, 2590, 590, -17, al_map_rgb(255, 255, 111)));
+     _Register_elements(pObj, New_Beat2(Beat2_L, 2850, 590, -17, al_map_rgb(255, 255, 111)));
+     _Register_elements(pObj, New_Beat2(Beat2_L, 3100, 590, -17, al_map_rgb(255, 255, 111)));
+     _Register_elements(pObj, New_Beat2(Beat2_L, 3390, 590, -17, al_map_rgb(255, 255, 111)));
     _Register_elements(pObj, New_Timer2(Timer2_L));
     _Register_elements(pObj, New_Boss2(Boss2_L));
     _Register_elements(pObj, New_Star2(Star2_L));
@@ -96,27 +96,12 @@ void game_scene2_update(Scene *self)
         return;
     }
     //換背景
-    if (time && time->count == 9000) {
+    if (time && time->count >= 1405 && time->count < 3012) {
         Obj->background = Obj->hell;
     }
-    if (time && time->count == 10000) {
+    if (time && time->count >= 3012) {
         Obj->background = Obj->office;
     }
-    // skip to chorus
-    // if(key_state[ALLEGRO_KEY_TAB]){
-    //     time->count = 8990;
-    //     // Load sound
-    //     al_destroy_sample(Obj->song);
-    //     al_destroy_sample_instance(Obj->sample_instance);
-    //     Obj->song = al_load_sample("assets/sound/bokuwa_chorus.mp3");
-    //     Obj->sample_instance = al_create_sample_instance(Obj->song);
-    //     // Play the song once
-    //     al_set_sample_instance_playmode(Obj->sample_instance, ALLEGRO_PLAYMODE_ONCE);
-    //     al_restore_default_mixer();
-    //     al_attach_sample_instance_to_mixer(Obj->sample_instance, al_get_default_mixer());
-    //     // set the volume of instance
-    //     al_set_sample_instance_gain(Obj->sample_instance, 0.4);
-    // }
 }
 
 void game_scene2_draw(Scene *self)
