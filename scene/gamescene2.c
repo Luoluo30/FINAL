@@ -16,7 +16,7 @@ Scene *New_GameScene2(int label)
     al_start_timer(pDerivedObj->t);
 
     // Load sound
-    pDerivedObj->song = al_load_sample("assets/sound/idol.mp3");
+    pDerivedObj->song = al_load_sample("assets/sound/idol_chorus.mp3");
     al_reserve_samples(20);
     pDerivedObj->sample_instance = al_create_sample_instance(pDerivedObj->song);
     // Play the song once
@@ -32,13 +32,14 @@ Scene *New_GameScene2(int label)
     _Register_elements(pObj, New_Tree(Tree_L));
     _Register_elements(pObj, New_Character(Character_L));*/
     _Register_elements(pObj, New_Judge2(Judge2_L));
-    _Register_elements(pObj, New_Beat2(Beat2_L, 1110, 590, -10, al_map_rgb(255, 255, 111)));
-    _Register_elements(pObj, New_Beat2(Beat2_L, 1310, 590, -10, al_map_rgb(255, 255, 111)));
-    _Register_elements(pObj, New_Beat2(Beat2_L, 1520, 590, -10, al_map_rgb(255, 255, 111)));
-    _Register_elements(pObj, New_Beat2(Beat2_L, 1730, 590, -10, al_map_rgb(255, 255, 111)));
-    _Register_elements(pObj, New_Beat2(Beat2_L, 1960, 590, -10, al_map_rgb(255, 255, 111)));
-    _Register_elements(pObj, New_Beat2(Beat2_L, 2170, 590, -10, al_map_rgb(255, 255, 111)));
-    _Register_elements(pObj, New_Beat2(Beat2_L, 2380, 590, -10, al_map_rgb(255, 255, 111)));
+    // _Register_elements(pObj, New_Beat2(Beat2_L, 1280, 590, -17, al_map_rgb(255, 255, 111)));
+    // _Register_elements(pObj, New_Beat2(Beat2_L, 1650, 590, -17, al_map_rgb(255, 255, 111)));
+    // _Register_elements(pObj, New_Beat2(Beat2_L, 1980, 590, -17, al_map_rgb(255, 255, 111)));
+    // _Register_elements(pObj, New_Beat2(Beat2_L, 2300, 590, -17, al_map_rgb(255, 255, 111)));
+    // _Register_elements(pObj, New_Beat2(Beat2_L, 2590, 590, -17, al_map_rgb(255, 255, 111)));
+    //  _Register_elements(pObj, New_Beat2(Beat2_L, 2850, 590, -17, al_map_rgb(255, 255, 111)));
+    //  _Register_elements(pObj, New_Beat2(Beat2_L, 3100, 590, -17, al_map_rgb(255, 255, 111)));
+    //  _Register_elements(pObj, New_Beat2(Beat2_L, 3390, 590, -17, al_map_rgb(255, 255, 111)));
     _Register_elements(pObj, New_Timer2(Timer2_L));
     _Register_elements(pObj, New_Boss2(Boss2_L));
     _Register_elements(pObj, New_Star2(Star2_L));

@@ -29,17 +29,18 @@ void Timer2_update(Elements *self)
     Timer2 *Obj = ((Timer2 *)(self->pDerivedObj));
     _Timer2_update_position(self, Obj->count, 0);
     Obj->count = al_get_timer_count(Obj->t);
-    // if(key_state[ALLEGRO_KEY_ENTER])
-    //     printf("%d\n", Obj->count);
+    //if(key_state[ALLEGRO_KEY_SPACE])
+         //printf("%d\n", Obj->count);
     //-90
-    int count[10000] = {140, 163, 183, 206, 227, 249, 269, 289, 312, 334, 355, 378, 399, 421, 442, 463, 484, 509, 529, 551, 574, 595, 616, 638, 687, 713};
-    for(int i=0; i<1000; i++)
+    // 143, 167, 185, 206, 225, 300, 317, 337, 357, 377, 
+    int count[10000] = {416, 451, 471, 491, 511};
+    for(int i=0; i<10000; i++)
     {
         if(Obj->count==count[i] && Obj->count!=Obj->last)
         {
             if(Obj->count<=1000)
             {
-                Elements *bt = New_Beat2(Beat2_L, 1000, 590, -10, al_map_rgb(255, 255, 111));
+                Elements *bt = New_Beat2(Beat2_L, 1000, 590, -17, al_map_rgb(255, 255, 111));
                 _Register_elements(scene, bt);
             }
             Obj->last = Obj->count;
@@ -62,7 +63,7 @@ void Timer2_update(Elements *self)
 void _Timer2_update_position(Elements *self, int dx, int dy)
 {
     Timer2 *Obj = ((Timer2 *)(self->pDerivedObj));
-    Obj->x = -WIDTH + WIDTH*dx/14160;
+    Obj->x = -WIDTH + WIDTH*dx/6660;
     Obj->y += dy;
 }
 void Timer2_interact(Elements *self, Elements *tar)

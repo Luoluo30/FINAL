@@ -91,7 +91,7 @@ void game_scene_update(Scene *self)
         return;
     }
     // 換背景
-    if (time && time->count == 9000) {
+    if (time && time->count == 9050) {
         Obj->background = Obj->hell;
     }
     if (time && time->count == 10000) {
