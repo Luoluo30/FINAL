@@ -61,8 +61,7 @@ void Boss2_update(Elements *self)
     Boss2 *Obj = ((Boss2 *)(self->pDerivedObj));
     //double dt = 0.5;
 
-    // 检查UP键状态
-    if (key_state[ALLEGRO_KEY_UP]) {
+    if (key_state[ALLEGRO_KEY_SPACE]) {
         if (!Obj->key_pressed) {
             Obj->id = rand() % 4;
             Obj->key_pressed = true;
@@ -99,7 +98,8 @@ void Boss2_update(Elements *self)
     } else {
         if (Obj->key_pressed) {
             Obj->current_img = Obj->img; 
-            Obj->current_img2 = Obj->img2;
+            Obj->x2 =- 400;
+            Obj->y2 =- 400;
             Obj->width = al_get_bitmap_width(Obj->current_img);
             Obj->height = al_get_bitmap_height(Obj->current_img);
             Obj->key_pressed = false; 

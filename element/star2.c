@@ -20,7 +20,7 @@ Elements *New_Star2(int label)
     pDerivedObj->x = -400;
     pDerivedObj->y = -400;
     pDerivedObj->id = 0;
-    pDerivedObj->key_pressed = false; // 初始化标志
+    pDerivedObj->key_pressed = false; 
 
     // setting derived object function
     pObj->pDerivedObj = pDerivedObj;
@@ -43,7 +43,7 @@ void Star2_update(Elements *self)
         {430, 190}
     };
 
-    if (key_state[ALLEGRO_KEY_UP]) {
+    if (key_state[ALLEGRO_KEY_SPACE]) {
         if (!Obj->key_pressed) {
             Obj->id = rand() % 4; 
             Obj->x = positions[Obj->id][0];
@@ -51,6 +51,8 @@ void Star2_update(Elements *self)
             Obj->key_pressed = true;
         }
     } else {
+        Obj->x = -400; 
+        Obj->y = -400; 
         Obj->key_pressed = false; 
     }
 }
