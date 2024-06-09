@@ -8,6 +8,7 @@ Scene *New_Menu(int label)
 {
     Menu *pDerivedObj = (Menu *)malloc(sizeof(Menu));
     Scene *pObj = New_Scene(label);
+
     // setting derived object member
     pDerivedObj->font = al_load_ttf_font("assets/font/vac.otf", 50, 0);
 
@@ -17,7 +18,8 @@ Scene *New_Menu(int label)
     pDerivedObj->sample_instance = al_create_sample_instance(pDerivedObj->song);
 
     // background image
-    pDerivedObj->background = al_load_bitmap("assets/image/osu.png");  
+    pDerivedObj->background = al_load_bitmap("assets/image/osu.png"); 
+    pDerivedObj->background2 = al_load_bitmap("assets/image/gameinfo.png");
     pDerivedObj->title_x = WIDTH / 2;
     pDerivedObj->title_y = HEIGHT / 2;
 
@@ -51,12 +53,7 @@ Scene *New_Menu(int label)
 }
 void menu_update(Scene *self)
 {
-    if (key_state[ALLEGRO_KEY_ESCAPE])
-    {
-        self->scene_end = true;
-        window = 0;  
-    }
-    return;
+    
 }
 
 void menu_draw(Scene *self)
@@ -97,10 +94,14 @@ void menu_draw(Scene *self)
             window = 2;  // shift to gamewindow2
             al_stop_sample_instance(Obj->sample_instance);
         }
-            // check the position of mouse(circle3)
+        // check the position of mouse(circle3)
         else if ((mouse_x - Obj->circle3_x) * (mouse_x - Obj->circle3_x) + (mouse_y - Obj->circle3_y) * (mouse_y - Obj->circle3_y) <= Obj->circle3_radius * Obj->circle3_radius) {
-            self->scene_end = true;
-
+            //self->scene_end = true;
+            int bg_width = al_get_bitmap_width(Obj->background2);
+            int bg_height = al_get_bitmap_height(Obj->background2);
+            int bg_x = (WIDTH - bg_width) / 2;
+            int bg_y = (HEIGHT - bg_height) / 2;
+            al_draw_bitmap(Obj->background2, bg_x, bg_y, 0);
         }
         // check the position of mouse(circle4)
         else if ((mouse_x - Obj->circle4_x) * (mouse_x - Obj->circle4_x) + (mouse_y - Obj->circle4_y) * (mouse_y - Obj->circle4_y) <= Obj->circle4_radius * Obj->circle4_radius) {
@@ -118,6 +119,7 @@ void menu_destroy(Scene *self)
     al_destroy_sample(Obj->song);
     al_destroy_sample_instance(Obj->sample_instance);
     al_destroy_bitmap(Obj->background);
+    al_destroy_bitmap(Obj->background2);
     free(Obj);
     free(self);
 }

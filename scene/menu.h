@@ -13,7 +13,8 @@ typedef struct _Menu
     ALLEGRO_FONT *font;
     ALLEGRO_SAMPLE *song;
     ALLEGRO_SAMPLE_INSTANCE *sample_instance;
-    ALLEGRO_BITMAP *background;  // 添加背景图像指针
+    ALLEGRO_BITMAP *background;  // 添加背景
+    ALLEGRO_BITMAP *background2;
     int title_x, title_y;
     //點擊的範圍
     int circle1_x, circle1_y, circle1_radius;

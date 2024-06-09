@@ -139,12 +139,12 @@ void game_scene2_destroy(Scene *self)
     al_destroy_bitmap(background);
     al_destroy_sample(Obj->song);
     al_destroy_sample_instance(Obj->sample_instance);
-    ElementVec allEle = _Get_all_elements(self);
-    for (int i = 0; i < allEle.len; i++)
-    {
-        Elements *ele = allEle.arr[i];
-        ele->Destroy(ele);
-    }
+  //  ElementVec allEle = _Get_all_elements(self);
+  //  for (int i = 0; i < allEle.len; i++)
+  //  {
+  //      Elements *ele = allEle.arr[i];
+  //      ele->Destroy(ele);
+   // }
     free(Obj);
     free(self);
 }

@@ -130,14 +130,19 @@ void game_scene_destroy(Scene *self)
     GameScene *Obj = ((GameScene *)(self->pDerivedObj));
     ALLEGRO_BITMAP *background = Obj->background;
     al_destroy_bitmap(background);
+    //printf("1");
     al_destroy_sample(Obj->song);
+    //printf("2");
     al_destroy_sample_instance(Obj->sample_instance);
-    ElementVec allEle = _Get_all_elements(self);
-    for (int i = 0; i < allEle.len; i++)
-    {
-        Elements *ele = allEle.arr[i];
-        ele->Destroy(ele);
-    }
+    //printf("3");
+   // ElementVec allEle = _Get_all_elements(self);
+   // for (int i = 0; i < allEle.len; i++)
+   // {
+  //      Elements *ele = allEle.arr[i];
+   //     ele->Destroy(ele);
+   // }
     free(Obj);
+    //printf("5");
     free(self);
+    //printf("6");
 }
