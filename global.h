@@ -23,6 +23,7 @@ extern Point mouse;
 extern ALLEGRO_EVENT_QUEUE *event_queue;
 extern ALLEGRO_EVENT event;
 extern ALLEGRO_TIMER *fps;
+
 extern bool debug_mode;
 extern int score_increment;
 #endif

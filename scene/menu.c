@@ -20,6 +20,7 @@ Scene *New_Menu(int label)
     // background image
     pDerivedObj->background = al_load_bitmap("assets/image/osu.png"); 
     pDerivedObj->background2 = al_load_bitmap("assets/image/gameinfo.png");
+    pDerivedObj->background3 = al_load_bitmap("assets/image/gamebackground.png");
     pDerivedObj->title_x = WIDTH / 2;
     pDerivedObj->title_y = HEIGHT / 2;
 
@@ -85,14 +86,16 @@ void menu_draw(Scene *self)
         // check the position of mouse(circle1)
         if ((mouse_x - Obj->circle1_x) * (mouse_x - Obj->circle1_x) + (mouse_y - Obj->circle1_y) * (mouse_y - Obj->circle1_y) <= Obj->circle1_radius * Obj->circle1_radius) {
             self->scene_end = true;
-            window = 1;  // shift to gamewindow1
+            window = 3;  // shift to gamewindow3
             al_stop_sample_instance(Obj->sample_instance);
         }
         // check the position of mouse(circle2)
         else if ((mouse_x - Obj->circle2_x) * (mouse_x - Obj->circle2_x) + (mouse_y - Obj->circle2_y) * (mouse_y - Obj->circle2_y) <= Obj->circle2_radius * Obj->circle2_radius) {
-            self->scene_end = true;
-            window = 2;  // shift to gamewindow2
-            al_stop_sample_instance(Obj->sample_instance);
+            int bg_width = al_get_bitmap_width(Obj->background3);
+            int bg_height = al_get_bitmap_height(Obj->background3);
+            int bg_x = (WIDTH - bg_width) / 2;
+            int bg_y = (HEIGHT - bg_height) / 2;
+            al_draw_bitmap(Obj->background3, bg_x, bg_y, 0);
         }
         // check the position of mouse(circle3)
         else if ((mouse_x - Obj->circle3_x) * (mouse_x - Obj->circle3_x) + (mouse_y - Obj->circle3_y) * (mouse_y - Obj->circle3_y) <= Obj->circle3_radius * Obj->circle3_radius) {

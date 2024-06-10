@@ -25,6 +25,7 @@
 		"gamescene2.h": "c",
 		"bad.h": "c",
 		"score.h": "c",
-		"score2.h": "c"
+		"score2.h": "c",
+		"menu2.h": "c"
 	}
 }

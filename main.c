@@ -1,4 +1,7 @@
 #include "GameWindow.h"
+
+
+
 int main(int argc, char **argv)
 {
 	Game *game = New_Game();

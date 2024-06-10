@@ -22,7 +22,7 @@ Game *New_Game()
     game->game_update = game_update;
     game->game_draw = game_draw;
     game->game_destroy = game_destroy;
-    game->title = "Final Project 10xxxxxxx";
+    game->title = "STUPID TA";
     game->display = NULL;
     game->game_init(game);
     return game;
@@ -134,10 +134,12 @@ bool game_update(Game *self)
         case 2:
             create_scene(GameScene2_L);
             break;
+        case 3:
+            create_scene(Menu_L2);
+            break;
         case -1:
             return false;
-        default:
-            break;
+            default : break;
         }
     }
     return true;

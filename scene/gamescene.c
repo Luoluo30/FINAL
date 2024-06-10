@@ -85,7 +85,7 @@ void game_scene_update(Scene *self)
 
     if (key_state[ALLEGRO_KEY_ESCAPE]) {
         self->scene_end = true;
-        window = 0;
+        window = 3;
         return;
     }
 
@@ -130,11 +130,8 @@ void game_scene_destroy(Scene *self)
     GameScene *Obj = ((GameScene *)(self->pDerivedObj));
     ALLEGRO_BITMAP *background = Obj->background;
     al_destroy_bitmap(background);
-    //printf("1");
     al_destroy_sample(Obj->song);
-    //printf("2");
     al_destroy_sample_instance(Obj->sample_instance);
-    //printf("3");
    // ElementVec allEle = _Get_all_elements(self);
    // for (int i = 0; i < allEle.len; i++)
    // {
@@ -142,7 +139,5 @@ void game_scene_destroy(Scene *self)
    //     ele->Destroy(ele);
    // }
     free(Obj);
-    //printf("5");
     free(self);
-    //printf("6");
 }

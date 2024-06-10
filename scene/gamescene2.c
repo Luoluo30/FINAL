@@ -92,7 +92,7 @@ void game_scene2_update(Scene *self)
 
     if (key_state[ALLEGRO_KEY_ESCAPE]) {
         self->scene_end = true;
-        window = 0;
+        window = 3;
         return;
     }
     //換背景
