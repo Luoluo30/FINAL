@@ -37,7 +37,7 @@ void Guncircle2_update(Elements *self)
     Guncircle2 *Obj = ((Guncircle2 *)(self->pDerivedObj));
     if (key_state[ALLEGRO_KEY_LEFT] || key_state[ALLEGRO_KEY_RIGHT])
     {
-        score_increment = 200; 
+        score_increment = 3; 
         Obj->shake_x = (rand() % (2 * Obj->shake_magnitude + 1)) - Obj->shake_magnitude;
         Obj->shake_y = (rand() % (2 * Obj->shake_magnitude + 1)) - Obj->shake_magnitude;
     }

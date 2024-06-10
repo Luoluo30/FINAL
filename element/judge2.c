@@ -16,6 +16,7 @@ Elements *New_Judge2(int label)
     
     // setting the interact object
     pObj->inter_obj[pObj->inter_len++] = Beat2_L;
+    pObj->inter_obj[pObj->inter_len++] = Timer2_L;
     /*pObj->inter_obj[pObj->inter_len++] = Tree_L;*/
 
     // setting derived object function
@@ -40,7 +41,14 @@ void Judge2_update(Elements *self)
 }
 void Judge2_interact(Elements *self, Elements *tar)
 {
-
+    if (tar->label == Timer2_L)
+    {
+        Timer2 *tm = ((Timer2 *)(tar->pDerivedObj));
+        if (tm->count == 1405)
+            self->dele = true;
+        if (tm->count >= 6660)
+            self->dele = true;
+    }
 }
 void Judge2_draw(Elements *self)
 {
