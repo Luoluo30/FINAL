@@ -27,6 +27,7 @@ Scene *New_GameScene(int label)
     al_attach_sample_instance_to_mixer(pDerivedObj->sample_instance, al_get_default_mixer());
     // set the volume of instance
     al_set_sample_instance_gain(pDerivedObj->sample_instance, 0.4);
+    al_play_sample_instance(pDerivedObj->sample_instance); // 初始化時播放一次
 
     // register element
     _Register_elements(pObj, New_Judge(Judge_L));
@@ -122,7 +123,7 @@ void game_scene_draw(Scene *self)
         Elements *ele = allEle.arr[i];
         ele->Draw(ele);
     }
-    al_play_sample_instance(gs->sample_instance);
+    //al_play_sample_instance(gs->sample_instance);
 }
 
 void game_scene_destroy(Scene *self)
