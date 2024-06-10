@@ -95,6 +95,19 @@ void game_scene2_update(Scene *self)
         window = 0;
         return;
     }
+
+    // 時間加速
+    if (key_state[ALLEGRO_KEY_P]) {
+        int64_t ticks_to_add = 2 * 60; //加速2秒 
+        if (time) {
+            al_set_timer_count(time->t, al_get_timer_count(time->t) + ticks_to_add);
+            time->count = al_get_timer_count(time->t); 
+        }
+
+        unsigned int samples_to_add = 2 * al_get_sample_instance_frequency(Obj->sample_instance);
+        unsigned int new_position = al_get_sample_instance_position(Obj->sample_instance) + samples_to_add;
+        al_set_sample_instance_position(Obj->sample_instance, new_position);
+    }
     //換背景
     if (time && time->count >= 1405 && time->count < 3012) {
         Obj->background = Obj->hell;

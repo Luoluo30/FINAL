@@ -13,9 +13,11 @@ Elements *New_Judge(int label)
     pDerivedObj->hitbox_pf = New_Circle(pDerivedObj->x,  pDerivedObj->y, 5);
     pDerivedObj->hitbox_gd = New_Circle(pDerivedObj->x,  pDerivedObj->y, 30);
     pDerivedObj->hitbox_ok = New_Circle(pDerivedObj->x,  pDerivedObj->y, 50);
+    pDerivedObj->b = true;
     
     // setting the interact object
     pObj->inter_obj[pObj->inter_len++] = Beat_L;
+    pObj->inter_obj[pObj->inter_len++] = Timer_L;
     /*pObj->inter_obj[pObj->inter_len++] = Tree_L;*/
 
     // setting derived object function
@@ -40,7 +42,12 @@ void Judge_update(Elements *self)
 }
 void Judge_interact(Elements *self, Elements *tar)
 {
-
+    if (tar->label == Timer_L)
+    {
+        Timer *tm = ((Timer *)(tar->pDerivedObj));
+        if (tm->count == 9050)
+            self->dele = true;
+    }
 }
 void Judge_draw(Elements *self)
 {
