@@ -96,21 +96,18 @@ void menu_draw2(Scene *self)
             mouse_y >= Obj->button1_y && mouse_y <= Obj->button1_y + Obj->button1_height) {
             self->scene_end = true;
             window = 1;  //shift to window1
-            al_stop_sample_instance(Obj->sample_instance);
+            //al_stop_sample_instance(Obj->sample_instance);
         }
         else if (mouse_x >= Obj->button2_x && mouse_x <= Obj->button2_x + Obj->button2_width &&
                  mouse_y >= Obj->button2_y && mouse_y <= Obj->button2_y + Obj->button2_height) {
             self->scene_end = true;
             window = 2;  //shift to window2
-            al_stop_sample_instance(Obj->sample_instance);
+            //al_stop_sample_instance(Obj->sample_instance);
         }
 
-        al_play_sample_instance(Obj->sample_instance);
+        //al_play_sample_instance(Obj->sample_instance);
     }
-    al_play_sample_instance(Obj->sample_instance);
-
 }
-
 void menu_destroy2(Scene *self)
 {
     Menu2 *Obj = ((Menu2 *)(self->pDerivedObj));

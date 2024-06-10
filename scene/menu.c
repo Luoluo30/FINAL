@@ -21,6 +21,7 @@ Scene *New_Menu(int label)
     pDerivedObj->background = al_load_bitmap("assets/image/osu.png"); 
     pDerivedObj->background2 = al_load_bitmap("assets/image/gameinfo.png");
     pDerivedObj->background3 = al_load_bitmap("assets/image/gamebackground.png");
+    pDerivedObj->background0 = al_load_bitmap("assets/image/cover.png");
     pDerivedObj->title_x = WIDTH / 2;
     pDerivedObj->title_y = HEIGHT / 2;
 
@@ -45,7 +46,7 @@ Scene *New_Menu(int label)
     pDerivedObj->circle4_x = WIDTH / 2 + 181;  // circlr4(exit)
     pDerivedObj->circle4_y = HEIGHT / 2;
     pDerivedObj->circle4_radius = 50;
-
+    pDerivedObj->show_background0 = true;
     // setting derived object function
     pObj->Update = menu_update;
     pObj->Draw = menu_draw;
@@ -54,29 +55,40 @@ Scene *New_Menu(int label)
 }
 void menu_update(Scene *self)
 {
-    
+    Menu *Obj = ((Menu *)(self->pDerivedObj));
+    // 获取键盘状态
+    ALLEGRO_KEYBOARD_STATE keyState;
+    al_get_keyboard_state(&keyState);
+
+    // 检查 Enter 键是否被按下
+    if (al_key_down(&keyState, ALLEGRO_KEY_ENTER)) {
+        Obj->show_background0 = false; 
+    } 
+
 }
 
 void menu_draw(Scene *self)
 {
     Menu *Obj = ((Menu *)(self->pDerivedObj));
-    if (Obj->background){
-    int bg_width = al_get_bitmap_width(Obj->background);
-    int bg_height = al_get_bitmap_height(Obj->background);
-    int bg_x = (WIDTH - bg_width) / 2;
-    int bg_y = (HEIGHT - bg_height) / 2;
-    al_draw_bitmap(Obj->background, bg_x, bg_y, 0);}
-
-    ALLEGRO_COLOR border_color = al_map_rgb(255, 255, 255);
-    // circle1 frame
-    al_draw_circle(Obj->circle1_x, Obj->circle1_y, Obj->circle1_radius, border_color, 2.0);
-    // circle2 frame
-    al_draw_circle(Obj->circle2_x, Obj->circle2_y, Obj->circle2_radius, border_color, 2.0);
-    // circle3 frame
-    al_draw_circle(Obj->circle3_x, Obj->circle3_y, Obj->circle3_radius, border_color, 2.0);
-    // circle4 frame
-    al_draw_circle(Obj->circle4_x, Obj->circle4_y, Obj->circle4_radius, border_color, 2.0);
-
+    if (Obj->show_background0) {
+        if (Obj->background0) {
+            int bg_width = al_get_bitmap_width(Obj->background0);
+            int bg_height = al_get_bitmap_height(Obj->background0);
+            int bg_x = (WIDTH - bg_width) / 2;
+            int bg_y = (HEIGHT - bg_height) / 2;
+            al_draw_bitmap(Obj->background0, bg_x, bg_y, 0);
+            
+        }
+    } else {
+        // 显示菜单
+        if (Obj->background) {
+            int bg_width = al_get_bitmap_width(Obj->background);
+            int bg_height = al_get_bitmap_height(Obj->background);
+            int bg_x = (WIDTH - bg_width) / 2;
+            int bg_y = (HEIGHT - bg_height) / 2;
+            al_draw_bitmap(Obj->background, bg_x, bg_y, 0);
+        }
+    }
     // check the left mouse
     ALLEGRO_MOUSE_STATE mouse_state;
     al_get_mouse_state(&mouse_state);
@@ -115,6 +127,7 @@ void menu_draw(Scene *self)
     }
     al_play_sample_instance(Obj->sample_instance);
 }
+
 void menu_destroy(Scene *self)
 {
     Menu *Obj = ((Menu *)(self->pDerivedObj));
@@ -123,6 +136,7 @@ void menu_destroy(Scene *self)
     al_destroy_sample_instance(Obj->sample_instance);
     al_destroy_bitmap(Obj->background);
     al_destroy_bitmap(Obj->background2);
+    al_destroy_bitmap(Obj->background0);
     free(Obj);
     free(self);
 }
