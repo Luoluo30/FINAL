@@ -47,6 +47,8 @@ void Judge_interact(Elements *self, Elements *tar)
         Timer *tm = ((Timer *)(tar->pDerivedObj));
         if (tm->count == 9050)
             self->dele = true;
+        if (tm->count == 14210)
+            self->dele = true;
     }
 }
 void Judge_draw(Elements *self)

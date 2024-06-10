@@ -1,6 +1,7 @@
 #include "gamescene.h"
 #include "../element/timer.h"
 #include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_primitives.h>
 
 /*
    [GameScene function]
@@ -12,10 +13,15 @@ Scene *New_GameScene(int label)
     // setting derived object member
     pDerivedObj->office = al_load_bitmap("assets/image/office.jpg");
     pDerivedObj->hell = al_load_bitmap("assets/image/hell.jpg");
+    pDerivedObj->end_pass = al_load_bitmap("assets/image/end_pass.jpg");
+    pDerivedObj->end_fail = al_load_bitmap("assets/image/end_fail.jpg");
     pDerivedObj->background = pDerivedObj->office;
     pObj->pDerivedObj = pDerivedObj;
     pDerivedObj->t = al_create_timer(1.0/60);
     al_start_timer(pDerivedObj->t);
+    pDerivedObj->font = al_load_ttf_font("assets/font/vac.otf", 175, 0);
+    pDerivedObj->font_x = -400;
+    pDerivedObj->font_y = -400;
 
     // Load sound
     pDerivedObj->song = al_load_sample("assets/sound/bokuwa.mp3");
@@ -110,6 +116,17 @@ void game_scene_update(Scene *self)
     if (time && time->count == 10000) {
         Obj->background = Obj->office;
     }
+    if (time && time->count == 14210 && end_score >= 100000) {
+        Obj->background = Obj->end_pass;
+    }
+    if (time && time->count == 14210 && end_score < 100000) {
+        Obj->background = Obj->end_fail;
+    }
+
+    if (time && time->count == 14210) {
+        Obj->font_x = 450;
+        Obj->font_y = 360;
+    }
 }
 
 void game_scene_draw(Scene *self)
@@ -124,6 +141,9 @@ void game_scene_draw(Scene *self)
         ele->Draw(ele);
     }
     //al_play_sample_instance(gs->sample_instance);
+    char score_text[10];
+    sprintf(score_text, "%d", end_score);
+    al_draw_text(gs->font, al_map_rgb(0, 0, 0), gs->font_x, gs->font_y, ALLEGRO_ALIGN_CENTER, score_text);
 }
 
 void game_scene_destroy(Scene *self)

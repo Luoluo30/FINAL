@@ -14,3 +14,5 @@ bool mouse_state[ALLEGRO_MOUSE_MAX_EXTRA_AXES] = {false};
 Point mouse;
 bool debug_mode = true;
 int score_increment=0;
+int end_score=0;
+int end_score2=0;

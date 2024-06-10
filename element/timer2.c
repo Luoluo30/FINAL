@@ -62,6 +62,10 @@ void Timer2_update(Elements *self)
         Elements *jud2 = New_Judge2(Judge2_L);
         _Register_elements(scene, jud2);
     }
+    if(Obj->count >= 6665) 
+    {
+        self->dele=true;
+    }
         
 }
 void _Timer2_update_position(Elements *self, int dx, int dy)

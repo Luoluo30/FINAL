@@ -57,11 +57,10 @@ void Timer_update(Elements *self)
         Elements *jud = New_Judge(Judge_L);
         _Register_elements(scene, jud);
     }
-    // if(Obj->count == 10000) //10000
-    // {
-    //     Elements *gun = New_Gun(Gun_L);
-    //     _Remove_elements(scene, gun);
-    // }
+    if(Obj->count >= 14215) //14220
+    {
+        self->dele=true;
+    }
 }
 void _Timer_update_position(Elements *self, int dx, int dy)
 {

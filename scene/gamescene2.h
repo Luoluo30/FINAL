@@ -19,6 +19,7 @@
 #include "../element/score2.h"
 #include "../element/guncircle2.h"
 #include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_font.h>
 
 /*
    [game scene object]
@@ -48,9 +49,14 @@ typedef struct _GameScene2
     ALLEGRO_BITMAP *background;
     ALLEGRO_BITMAP *office;
     ALLEGRO_BITMAP *hell;
+    ALLEGRO_BITMAP *end_pass;
+    ALLEGRO_BITMAP *end_fail;
     ALLEGRO_SAMPLE *song;
     ALLEGRO_SAMPLE_INSTANCE *sample_instance;
     ALLEGRO_TIMER *t;
+    ALLEGRO_FONT *font;
+    float font_x;
+    float font_y;
 } GameScene2;
 Scene *New_GameScene2(int label);
 void game_scene2_update(Scene *self);

@@ -17,7 +17,9 @@ Elements *New_Score2(int label)
     pDerivedObj->text_y = 50;
     pDerivedObj->text1_x = 860;
     pDerivedObj->text1_y = 100;
-    //strcpy(pDerivedObj->num, pDerivedObj->count);
+    //interect
+    pObj->inter_obj[pObj->inter_len++] = Timer2_L;
+
     pDerivedObj->font = al_load_ttf_font("assets/font/vac.otf", 50, 0);
     pObj->pDerivedObj = pDerivedObj;
     pObj->Update = Score2_update;
@@ -35,11 +37,17 @@ void Score2_update(Elements *self)
         Obj->count += score_increment;
         score_increment = 0; // 重置增量
     }
+    end_score2 = Obj->count;
 }
 
 void Score2_interact(Elements *self, Elements *tar)
 {
-
+    if (tar->label == Timer2_L)
+    {
+        Timer2 *tm = ((Timer2 *)(tar->pDerivedObj));
+        if (tm->count >= 6660)
+            self->dele = true;
+    }
 }
 void Score2_draw(Elements *self)
 {

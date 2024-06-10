@@ -42,7 +42,7 @@ Elements *New_Boss(int label)
     pDerivedObj->x2 = -400;
     pDerivedObj->y2 = -400;
     // setting the interact object
-
+    pObj->inter_obj[pObj->inter_len++] = Timer_L;
     // setting derived object function
     pObj->pDerivedObj = pDerivedObj;
     pObj->Update = Boss_update;
@@ -135,6 +135,12 @@ void _Boss_update_position(Elements *self, int dx, int dy)
 
 void Boss_interact(Elements *self, Elements *tar)
 {
+    if (tar->label == Timer_L)
+    {
+        Timer *tm = ((Timer *)(tar->pDerivedObj));
+        if (tm->count == 14210)
+            self->dele = true;
+    }
 }
 
 void Boss_draw(Elements *self)
