@@ -45,7 +45,7 @@ void Judge_interact(Elements *self, Elements *tar)
     if (tar->label == Timer_L)
     {
         Timer *tm = ((Timer *)(tar->pDerivedObj));
-        if (tm->count == 9050)
+        if (tm->count == 9030)
             self->dele = true;
         if (tm->count == 14210)
             self->dele = true;

@@ -70,7 +70,7 @@ void menu_update2(Scene *self)
         window = 0;  // shift to menu
     }
 
-    // 更新 prev_key_state
+    // update prev_key_state
     memcpy(Obj->prev_key_state, Obj->key_state, sizeof(Obj->key_state));
 }
 

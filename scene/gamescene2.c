@@ -121,10 +121,10 @@ void game_scene2_update(Scene *self)
     if (time && time->count >= 3012 && time->count < 6660) {
         Obj->background = Obj->office;
     }
-    if (time && time->count >= 6660 && end_score2 >= 100000) {
+    if (time && time->count >= 6660 && end_score2 >= 100) {
         Obj->background = Obj->end_pass;
     }
-    if (time && time->count == 6660 && end_score2 < 100000) {
+    if (time && time->count >= 6660 && end_score2 < 100) {
         Obj->background = Obj->end_fail;
     }
 

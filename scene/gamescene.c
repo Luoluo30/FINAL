@@ -110,16 +110,16 @@ void game_scene_update(Scene *self)
     }
 
     // 換背景
-    if (time && time->count == 9050) {
+    if (time && time->count >= 9030 && time->count<10000) {
         Obj->background = Obj->hell;
     }
-    if (time && time->count == 10000) {
+    if (time && time->count >= 10000 && time->count <14210) {
         Obj->background = Obj->office;
     }
-    if (time && time->count == 14210 && end_score >= 100000) {
+    if (time && time->count >= 14210 && end_score >= 100000) {
         Obj->background = Obj->end_pass;
     }
-    if (time && time->count == 14210 && end_score < 100000) {
+    if (time && time->count >= 14210 && end_score < 100000) {
         Obj->background = Obj->end_fail;
     }
 

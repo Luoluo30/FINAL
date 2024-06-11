@@ -34,10 +34,10 @@ Scene *New_Menu(int label)
     al_set_sample_instance_gain(pDerivedObj->sample_instance, 0.1);
     pObj->pDerivedObj = pDerivedObj;
 
-    pDerivedObj->circle1_x = WIDTH / 2 - 179;  // circle1(boku wa)
+    pDerivedObj->circle1_x = WIDTH / 2 - 179;  // circle1(choose songs)
     pDerivedObj->circle1_y = HEIGHT / 2;
     pDerivedObj->circle1_radius = 50; 
-    pDerivedObj->circle2_x = WIDTH / 2 -57;  // circle2(idol)
+    pDerivedObj->circle2_x = WIDTH / 2 -57;  // circle2(gamebackground)
     pDerivedObj->circle2_y = HEIGHT / 2;
     pDerivedObj->circle2_radius = 50;
     pDerivedObj->circle3_x = WIDTH / 2 + 61;  // circle3(set info)
@@ -56,11 +56,11 @@ Scene *New_Menu(int label)
 void menu_update(Scene *self)
 {
     Menu *Obj = ((Menu *)(self->pDerivedObj));
-    // 获取键盘状态
+    //check the keyboard situation
     ALLEGRO_KEYBOARD_STATE keyState;
     al_get_keyboard_state(&keyState);
 
-    // 检查 Enter 键是否被按下
+    //check Enter
     if (al_key_down(&keyState, ALLEGRO_KEY_ENTER)) {
         Obj->show_background0 = false; 
     } 
@@ -80,7 +80,6 @@ void menu_draw(Scene *self)
             
         }
     } else {
-        // 显示菜单
         if (Obj->background) {
             int bg_width = al_get_bitmap_width(Obj->background);
             int bg_height = al_get_bitmap_height(Obj->background);
